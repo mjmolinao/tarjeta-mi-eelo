@@ -8,7 +8,7 @@
 <meta property="og:title" content="mi eelo · Hecho con ganas en Guatemala">
 <meta property="og:description" content="Tote bags, playeras, kits y regalos para tu marca u organización. Cotizá por WhatsApp.">
 <meta property="og:image" content="https://adrian-9856.github.io/landing-majo/assets/portada.jpg">
-<meta name="theme-color" content="#22150E">
+<meta name="theme-color" content="#120A06">
 <meta name="color-scheme" content="dark only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
    Fondo: video del taller a pantalla completa, todo el tiempo.
    Colores cálidos: velo café espresso, crema, coral y terracota. */
 :root{
-  --noche:#22150E;          /* café espresso: velo sobre el video */
+  --noche:#120A06;          /* café espresso oscuro: velo sobre el video */
   --terracota:#C9683F;      /* terracota */
   --crema:#F7EFE3;          /* crema de la playera */
   --coral:#FF9472;          /* coral del logo, más vivo */
@@ -46,12 +46,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .bg video.on{opacity:1}
 .bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(34,21,14,.55) 0%,rgba(34,21,14,.05) 22%,rgba(34,21,14,.10) 45%,rgba(34,21,14,.82) 78%,rgba(34,21,14,.92) 100%);}
-body.scrolled .bg::after{background:rgba(34,21,14,.72)}
+  background:linear-gradient(180deg,rgba(18,10,6,.55) 0%,rgba(18,10,6,.05) 22%,rgba(18,10,6,.10) 45%,rgba(18,10,6,.82) 78%,rgba(18,10,6,.92) 100%);}
+body.scrolled .bg::after{background:rgba(18,10,6,.8)}
 
 /* ---------- barra ---------- */
 .bar{position:fixed;z-index:10;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:max(16px,env(safe-area-inset-top)) 18px 12px;transition:background .3s}
-body.scrolled .bar{background:rgba(34,21,14,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+body.scrolled .bar{background:rgba(18,10,6,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .bar .logo img{height:28px;width:auto;filter:drop-shadow(0 1px 8px rgba(0,0,0,.3))}
 .right{display:flex;align-items:center;gap:8px}
 .lang{display:flex;gap:2px;padding:3px;border-radius:99px;background:var(--vidrio2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--borde)}
@@ -106,7 +106,7 @@ h1 em{font-style:italic;font-weight:500;color:var(--coral)}
 .story{display:block;position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/10;width:100%;border:1px solid var(--borde);background:#000}
 .story img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .story:hover img{transform:scale(1.04)}
-.story::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,21,14,0) 35%,rgba(34,21,14,.85))}
+.story::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,10,6,0) 35%,rgba(18,10,6,.85))}
 .story .play{position:absolute;z-index:1;right:16px;bottom:16px;width:52px;height:52px;border-radius:50%;background:var(--coral);display:grid;place-items:center}
 .story .play::after{content:"";margin-left:4px;border-left:15px solid var(--noche);border-top:9px solid transparent;border-bottom:9px solid transparent}
 .story .cap{position:absolute;z-index:1;left:16px;right:80px;bottom:14px;text-align:left}
@@ -133,7 +133,7 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
 /* hojas: QR y video */
-.sheet{position:fixed;inset:0;z-index:30;background:rgba(24,14,9,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px}
+.sheet{position:fixed;inset:0;z-index:30;background:rgba(12,7,4,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px}
 .sheet .box{background:var(--crema);color:var(--noche);border-radius:26px;padding:24px;width:min(360px,100%);text-align:center}
 .sheet .box h2{font:600 1.5rem/1.2 var(--serif);margin:0 0 4px}
 .sheet .box p{margin:0 0 16px;color:#6B5547;font-size:.92rem}
@@ -150,8 +150,8 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
 @media (min-width:900px){
   main{margin-left:clamp(32px,8vw,120px);max-width:480px}
   .bar{padding:24px clamp(32px,8vw,120px)}
-  .bg::after{background:linear-gradient(90deg,rgba(34,21,14,.9) 0%,rgba(34,21,14,.6) 40%,rgba(34,21,14,.05) 75%)}
-  body.scrolled .bg::after{background:linear-gradient(90deg,rgba(34,21,14,.92) 0%,rgba(34,21,14,.7) 45%,rgba(34,21,14,.2) 80%)}
+  .bg::after{background:linear-gradient(90deg,rgba(18,10,6,.9) 0%,rgba(18,10,6,.6) 40%,rgba(18,10,6,.05) 75%)}
+  body.scrolled .bg::after{background:linear-gradient(90deg,rgba(18,10,6,.92) 0%,rgba(18,10,6,.7) 45%,rgba(18,10,6,.2) 80%)}
   .hero{justify-content:center;padding-top:90px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -287,7 +287,7 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
     },
     en:{
       pill:'Custom orders welcome',
-      h1:'Handmade with <em>ganas</em> in Guatemala.',
+      h1:'Made it with <em>ganas</em> in Guatemala.',
       lede:'Like what you see at our booth? We can make it for your brand, company or organization: tote bags, T-shirts, kits and gifts, sewn by the women of mi eelo.',
       waB:'Get a quote on WhatsApp', mas:'Explore mi eelo',
       waMsg:'Hi mi eelo! I saw your booth at the fair and I’d love a quote for a custom order.',
@@ -358,7 +358,7 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
   function closeSheet(el){ el.hidden = true; document.body.style.overflow=''; if (lastFocus) lastFocus.focus(); }
   var qrSheet = document.getElementById('qrSheet'), qrMade = false;
   document.getElementById('qrOpen').addEventListener('click', function(){
-    if (!qrMade && window.QRCode){ new QRCode(document.getElementById('qrBox'), { text: URL_TARJETA, width: 480, height: 480, colorDark:'#22150E', colorLight:'#FFFFFF', correctLevel: QRCode.CorrectLevel.M }); qrMade = true; }
+    if (!qrMade && window.QRCode){ new QRCode(document.getElementById('qrBox'), { text: URL_TARJETA, width: 480, height: 480, colorDark:'#120A06', colorLight:'#FFFFFF', correctLevel: QRCode.CorrectLevel.M }); qrMade = true; }
     openSheet(qrSheet, document.getElementById('qrClose'));
   });
   document.getElementById('qrClose').addEventListener('click', function(){ closeSheet(qrSheet); });
