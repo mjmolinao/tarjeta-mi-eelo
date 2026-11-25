@@ -168,7 +168,10 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
 <body>
 
 <div class="bg" aria-hidden="true">
-  <video id="v0" class="on" muted playsinline autoplay loop preload="auto" poster="assets/portada.jpg"></video>
+  <video id="v0" class="on" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback poster="assets/portada.jpg">
+    <source src="assets/portada-1280.mp4" type="video/mp4" media="(min-width: 900px)">
+    <source src="assets/portada-720.mp4" type="video/mp4">
+  </video>
 </div>
 
 <header class="bar">
@@ -332,10 +335,11 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
   // ---- fondo: video del taller en bucle ----
   var v = document.getElementById('v0'), vids = [v], cur = 0;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var paused = reduce;
-  v.src = window.innerWidth >= 900 ? 'assets/portada-1280.mp4' : 'assets/portada-720.mp4';
-  function playV(x){ var p = x.play(); if (p && p.catch) p.catch(function(){}); }
-  if (paused) v.removeAttribute('autoplay'); else playV(v);
+  var paused = false; // siempre arranca solo; el botón ⏸ permite pausarlo
+  v.muted = true; v.defaultMuted = true; v.setAttribute('muted','');
+  function playV(x){ x.muted = true; var p = x.play(); if (p && p.catch) p.catch(function(){}); }
+  if (paused){ v.removeAttribute('autoplay'); v.pause(); }
+  else { playV(v); v.addEventListener('loadeddata', function(){ if (!paused) playV(v); }, {once:true}); }
   function retry(){ if (!paused && v.paused) playV(v); }
   ['touchstart','pointerdown','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev, retry, {passive:true}); });
   document.addEventListener('visibilitychange', function(){ if (!document.hidden) retry(); });
