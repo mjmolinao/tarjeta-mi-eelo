@@ -49,6 +49,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--noche)}
 .bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .bg video.on{opacity:1}
+.bg video::-webkit-media-controls,.bg video::-webkit-media-controls-start-playback-button,.bg video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none}
 .bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(18,10,6,.55) 0%,rgba(18,10,6,.05) 22%,rgba(18,10,6,.10) 45%,rgba(18,10,6,.82) 78%,rgba(18,10,6,.92) 100%);}
 body.scrolled .bg::after{background:rgba(18,10,6,.8)}
@@ -108,12 +109,12 @@ h1 em{font-style:italic;font-weight:500;color:var(--coral)}
 
 /* tarjeta de video */
 .story{display:block;position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/10;width:100%;border:1px solid var(--borde);background:#000}
-.story img{width:100%;height:100%;object-fit:cover;object-position:50% 38%;transition:transform .5s}
+.story img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .story:hover img{transform:scale(1.04)}
 .story::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,10,6,0) 35%,rgba(18,10,6,.85))}
-.story .play{position:absolute;z-index:1;right:14px;top:14px;width:46px;height:46px;border-radius:50%;background:var(--coral);display:grid;place-items:center}
+.story .play{position:absolute;z-index:1;right:16px;bottom:16px;width:52px;height:52px;border-radius:50%;background:var(--coral);display:grid;place-items:center}
 .story .play::after{content:"";margin-left:4px;border-left:15px solid var(--noche);border-top:9px solid transparent;border-bottom:9px solid transparent}
-.story .cap{position:absolute;z-index:1;left:16px;right:16px;bottom:14px;text-align:left}
+.story .cap{position:absolute;z-index:1;left:16px;right:80px;bottom:14px;text-align:left}
 .story .cap span{font:500 .64rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--coral)}
 .story .cap b{display:block;font:600 1.15rem/1.2 var(--sans);margin-top:6px}
 
@@ -216,7 +217,7 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
       </a></li>
     <li>
       <button class="story" type="button" id="storyBtn" aria-label="Video: la historia de mi eelo">
-        <img src="assets/equipo.jpg" alt="" loading="lazy" width="1400" height="933">
+        <img src="https://i.ytimg.com/vi/IV4xWXgbkfU/hqdefault.jpg" alt="" loading="lazy">
         <span class="cap"><span data-t="l4k">Video</span><b data-t="l4b">La historia de mi eelo</b></span>
         <i class="play" aria-hidden="true"></i>
       </button></li>
@@ -335,6 +336,9 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
   v.src = window.innerWidth >= 900 ? 'assets/portada-1280.mp4' : 'assets/portada-720.mp4';
   function playV(x){ var p = x.play(); if (p && p.catch) p.catch(function(){}); }
   if (paused) v.removeAttribute('autoplay'); else playV(v);
+  function retry(){ if (!paused && v.paused) playV(v); }
+  ['touchstart','pointerdown','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev, retry, {passive:true}); });
+  document.addEventListener('visibilitychange', function(){ if (!document.hidden) retry(); });
   var pauseBtn = document.getElementById('pauseBtn');
   function setPause(){
     pauseBtn.setAttribute('aria-label', paused ? t('reproducir') : t('pausar'));
