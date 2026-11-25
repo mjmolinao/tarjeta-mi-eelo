@@ -8,7 +8,7 @@
 <meta property="og:title" content="mi eelo · Hecho con ganas en Guatemala">
 <meta property="og:description" content="Tote bags, playeras, kits y regalos para tu marca u organización. Cotizá por WhatsApp.">
 <meta property="og:image" content="https://adrian-9856.github.io/landing-majo/assets/fondo-coleccion.jpg">
-<meta name="theme-color" content="#0E1A3A">
+<meta name="theme-color" content="#22150E">
 <meta name="color-scheme" content="dark only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,17 +16,17 @@
 <style>
 /* mi eelo · tarjeta para feria. Pensada para celular.
    Fondo: videos del taller y de la colección, a pantalla completa, todo el tiempo.
-   Colores de la colección (playera Guatemala): cobalto, crema y coral sobre un velo azul noche. */
+   Colores cálidos: velo café espresso, crema, coral y terracota. */
 :root{
-  --noche:#0E1A3A;          /* velo sobre el video */
-  --cobalto:#2B4DF0;        /* azul de la playera */
+  --noche:#22150E;          /* café espresso: velo sobre el video */
+  --terracota:#C9683F;      /* terracota */
   --crema:#F7EFE3;          /* crema de la playera */
   --coral:#FF9472;          /* coral del logo, más vivo */
   --blanco:#FFFFFF;
   --suave:rgba(255,255,255,.78);
-  --vidrio:rgba(255,255,255,.11);
-  --vidrio2:rgba(255,255,255,.18);
-  --borde:rgba(255,255,255,.20);
+  --vidrio:rgba(255,236,220,.10);
+  --vidrio2:rgba(255,236,220,.17);
+  --borde:rgba(255,236,220,.20);
   --serif:"Playfair Display", Georgia, serif;
   --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
@@ -46,12 +46,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .bg video.on{opacity:1}
 .bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(14,26,58,.55) 0%,rgba(14,26,58,.05) 22%,rgba(14,26,58,.10) 45%,rgba(14,26,58,.82) 78%,rgba(14,26,58,.92) 100%);}
-body.scrolled .bg::after{background:rgba(14,26,58,.72)}
+  background:linear-gradient(180deg,rgba(34,21,14,.55) 0%,rgba(34,21,14,.05) 22%,rgba(34,21,14,.10) 45%,rgba(34,21,14,.82) 78%,rgba(34,21,14,.92) 100%);}
+body.scrolled .bg::after{background:rgba(34,21,14,.72)}
 
 /* ---------- barra ---------- */
 .bar{position:fixed;z-index:10;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:max(16px,env(safe-area-inset-top)) 18px 12px;transition:background .3s}
-body.scrolled .bar{background:rgba(14,26,58,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+body.scrolled .bar{background:rgba(34,21,14,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .bar .logo img{height:28px;width:auto;filter:drop-shadow(0 1px 8px rgba(0,0,0,.3))}
 .right{display:flex;align-items:center;gap:8px}
 .lang{display:flex;gap:2px;padding:3px;border-radius:99px;background:var(--vidrio2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--borde)}
@@ -73,10 +73,10 @@ h1 em{font-style:italic;font-weight:500;color:var(--coral)}
 
 .wa{display:flex;align-items:center;gap:14px;margin-top:22px;padding:12px 16px 12px 12px;border-radius:22px;background:var(--crema);color:var(--noche);box-shadow:0 14px 40px rgba(0,0,0,.35);transition:transform .15s}
 .wa:active{transform:scale(.98)}
-.wa .ic{width:50px;height:50px;border-radius:16px;background:var(--cobalto);color:#fff;display:grid;place-items:center;flex:none}
+.wa .ic{width:50px;height:50px;border-radius:16px;background:var(--terracota);color:#fff;display:grid;place-items:center;flex:none}
 .wa .ic svg{width:27px;height:27px}
 .wa b{display:block;font:700 1.08rem/1.2 var(--sans)}
-.wa small{display:block;font:500 .78rem/1.3 var(--mono);color:#3B4766;margin-top:3px}
+.wa small{display:block;font:500 .78rem/1.3 var(--mono);color:#6B5547;margin-top:3px}
 .wa .go{margin-left:auto;width:36px;height:36px;border-radius:50%;background:var(--coral);display:grid;place-items:center;flex:none;animation:pulso 2.2s infinite}
 .wa .go svg{width:15px;height:15px;color:var(--noche)}
 @keyframes pulso{0%{box-shadow:0 0 0 0 rgba(255,148,114,.65)}70%{box-shadow:0 0 0 14px rgba(255,148,114,0)}100%{box-shadow:0 0 0 0 rgba(255,148,114,0)}}
@@ -87,22 +87,24 @@ h1 em{font-style:italic;font-weight:500;color:var(--coral)}
 
 /* secciones */
 .label{font:500 .68rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin:44px 0 14px;display:flex;align-items:center;gap:10px}
-.label::after{content:"";flex:1;height:1px;background:var(--borde)}
+.label::after{content:"";flex:1;height:12px;background:url(assets/hilo-h.png) left center/auto 12px repeat-x;opacity:.75}
 
 /* el hilo que une los enlaces */
-.thread{position:relative;list-style:none;margin:0;padding:0 0 0 26px;display:grid;gap:10px}
-.thread .line{position:absolute;left:0;top:0;width:20px;height:100%;overflow:visible;pointer-events:none}
-.thread .line path{fill:none;stroke:var(--coral);stroke-width:2;stroke-linecap:round}
+.thread{position:relative;list-style:none;margin:0;padding:0 0 0 30px;display:grid;gap:12px}
+/* hilo de verdad (foto recortada), se va "cosiendo" al bajar */
+.thread .hilo{position:absolute;left:-4px;top:-8px;bottom:-24px;width:26px;pointer-events:none;
+  background:url(assets/hilo-v.png) center top/26px auto repeat-y;filter:saturate(1.25) brightness(1.15) drop-shadow(0 1px 2px rgba(0,0,0,.35));
+  clip-path:inset(0 0 var(--falta,100%) 0)}
 .thread li{position:relative}
-.knot{position:absolute;left:-26px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--noche);border:2px solid var(--coral);transition:background .2s}
+.knot{position:absolute;left:-25px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 3px rgba(255,148,114,.25);transition:transform .2s}
+.thread li:hover .knot{transform:scale(1.3)}
 .glass{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:16px;border-radius:20px;background:var(--vidrio);border:1px solid var(--borde);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);transition:background .2s,transform .15s}
 .glass:hover{background:var(--vidrio2)}
 .glass:active{transform:scale(.985)}
-.thread li:hover .knot{background:var(--coral)}
-.glass .ico{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:none;background:var(--c,var(--cobalto));color:#fff}
+.glass .ico{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:none;background:var(--c,var(--terracota));color:#fff}
 .glass .ico svg{width:22px;height:22px}
 .glass .t{flex:1;min-width:0}
-.glass .t b{display:block;font:600 1.2rem/1.2 var(--serif)}
+.glass .t b{display:block;font:600 1.06rem/1.25 var(--sans);letter-spacing:-.005em}
 .glass .t span{display:block;font-size:.86rem;color:var(--suave);margin-top:2px}
 .glass .arrow{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.12)}
 .glass .arrow svg{width:13px;height:13px}
@@ -111,12 +113,12 @@ h1 em{font-style:italic;font-weight:500;color:var(--coral)}
 .story{display:block;position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/10;width:100%;border:1px solid var(--borde);background:#000}
 .story img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .story:hover img{transform:scale(1.04)}
-.story::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,26,58,0) 35%,rgba(14,26,58,.85))}
+.story::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,21,14,0) 35%,rgba(34,21,14,.85))}
 .story .play{position:absolute;z-index:1;right:16px;bottom:16px;width:52px;height:52px;border-radius:50%;background:var(--coral);display:grid;place-items:center}
 .story .play::after{content:"";margin-left:4px;border-left:15px solid var(--noche);border-top:9px solid transparent;border-bottom:9px solid transparent}
 .story .cap{position:absolute;z-index:1;left:16px;right:80px;bottom:14px;text-align:left}
 .story .cap span{font:500 .64rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--coral)}
-.story .cap b{display:block;font:italic 600 1.4rem/1.15 var(--serif);margin-top:5px}
+.story .cap b{display:block;font:600 1.15rem/1.2 var(--sans);margin-top:6px}
 
 /* contacto */
 .contact{display:grid;gap:10px}
@@ -138,10 +140,10 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
 /* hojas: QR y video */
-.sheet{position:fixed;inset:0;z-index:30;background:rgba(8,14,32,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px}
+.sheet{position:fixed;inset:0;z-index:30;background:rgba(24,14,9,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px}
 .sheet .box{background:var(--crema);color:var(--noche);border-radius:26px;padding:24px;width:min(360px,100%);text-align:center}
 .sheet .box h2{font:600 1.5rem/1.2 var(--serif);margin:0 0 4px}
-.sheet .box p{margin:0 0 16px;color:#4A5470;font-size:.92rem}
+.sheet .box p{margin:0 0 16px;color:#6B5547;font-size:.92rem}
 #qrBox{width:230px;max-width:100%;margin:0 auto 18px;aspect-ratio:1;padding:10px;background:#fff;border-radius:16px}
 #qrBox img,#qrBox canvas{width:100%!important;height:auto!important}
 .sheet .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -155,8 +157,8 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
 @media (min-width:900px){
   main{margin-left:clamp(32px,8vw,120px);max-width:480px}
   .bar{padding:24px clamp(32px,8vw,120px)}
-  .bg::after{background:linear-gradient(90deg,rgba(14,26,58,.9) 0%,rgba(14,26,58,.6) 40%,rgba(14,26,58,.05) 75%)}
-  body.scrolled .bg::after{background:linear-gradient(90deg,rgba(14,26,58,.92) 0%,rgba(14,26,58,.7) 45%,rgba(14,26,58,.2) 80%)}
+  .bg::after{background:linear-gradient(90deg,rgba(34,21,14,.9) 0%,rgba(34,21,14,.6) 40%,rgba(34,21,14,.05) 75%)}
+  body.scrolled .bg::after{background:linear-gradient(90deg,rgba(34,21,14,.92) 0%,rgba(34,21,14,.7) 45%,rgba(34,21,14,.2) 80%)}
   .hero{justify-content:center;padding-top:90px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -199,10 +201,10 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
 
   <p class="label" data-t="lblExplora">Seguí el hilo</p>
   <ul class="thread" id="thread">
-    <svg class="line" aria-hidden="true"><path id="threadPath"/></svg>
+    <span class="hilo" id="hilo" aria-hidden="true"></span>
     <li><i class="knot"></i>
       <a class="glass" href="https://mieelocatalogo.framer.media" target="_blank" rel="noopener">
-        <span class="ico" style="--c:var(--cobalto)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5Z"/><path d="M13 4h5.5c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5H13Z"/></svg></span>
+        <span class="ico" style="--c:var(--terracota)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5Z"/><path d="M13 4h5.5c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5H13Z"/></svg></span>
         <span class="t"><b data-t="l1b">Catálogo</b><span data-t="l1s">Productos y técnicas para tu pedido</span></span>
         <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
       </a></li>
@@ -226,7 +228,7 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
       </button></li>
     <li><i class="knot"></i>
       <a class="glass" href="https://www.instagram.com/mi.eelo" target="_blank" rel="noopener">
-        <span class="ico" style="--c:linear-gradient(135deg,#FF9472,#E2457A 55%,#7B4DF0)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></span>
+        <span class="ico" style="--c:linear-gradient(135deg,#FFB27A,#E2577A 60%,#B0409A)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></span>
         <span class="t"><b>@mi.eelo</b><span data-t="l5s">El taller en Instagram</span></span>
         <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
       </a></li>
@@ -235,7 +237,7 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
   <p class="label" data-t="lblContacto">Escribinos</p>
   <div class="contact">
     <a class="glass" id="waPhone" href="https://wa.me/50237649769" target="_blank" rel="noopener">
-      <span class="ico" style="--c:var(--cobalto)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span>
+      <span class="ico" style="--c:var(--terracota)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span>
       <span class="t"><span class="k" data-t="kVentas">WhatsApp de ventas</span><span class="v">+502 3764 9769</span></span>
       <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
     </a>
@@ -372,33 +374,15 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
   function onScroll(){ document.body.classList.toggle('scrolled', window.scrollY > window.innerHeight*0.45); progress(); }
   window.addEventListener('scroll', onScroll, {passive:true});
 
-  // ---- el hilo: curva suave por cada nudo, se dibuja al bajar ----
-  var list = document.getElementById('thread'), path = document.getElementById('threadPath');
-  function drawThread(){
-    var knots = list.querySelectorAll('.knot'), base = list.getBoundingClientRect();
-    if (!knots.length) return;
-    var pts = [].map.call(knots, function(k){ var r = k.getBoundingClientRect(); return [r.left - base.left + r.width/2, r.top - base.top + r.height/2]; });
-    var d = 'M' + pts[0][0] + ' ' + (pts[0][1] - 40), sw = 8;
-    pts.forEach(function(p, i){
-      var prev = i ? pts[i-1] : [p[0], p[1]-40], mid = (prev[1] + p[1]) / 2, s = (i % 2 ? sw : -sw);
-      d += ' C' + (prev[0] + s) + ' ' + mid + ' ' + (p[0] - s) + ' ' + mid + ' ' + p[0] + ' ' + p[1];
-    });
-    var l = pts[pts.length-1];
-    d += ' C' + (l[0]+sw) + ' ' + (l[1]+20) + ' ' + (l[0]-4) + ' ' + (l[1]+30) + ' ' + (l[0]+5) + ' ' + (l[1]+44);
-    path.setAttribute('d', d);
-    var len = path.getTotalLength(); path.style.strokeDasharray = len; path.dataset.len = len;
-    progress();
-  }
+  // ---- el hilo: se va mostrando de arriba a abajo al bajar ----
+  var list = document.getElementById('thread'), hilo = document.getElementById('hilo');
   function progress(){
-    var len = +path.dataset.len || 0; if (!len) return;
-    if (reduce){ path.style.strokeDashoffset = 0; return; }
+    if (reduce){ hilo.style.setProperty('--falta','0%'); return; }
     var r = list.getBoundingClientRect(), vh = window.innerHeight;
-    var f = Math.min(1, Math.max(0, (vh*0.9 - r.top) / (r.height + vh*0.2)));
-    path.style.strokeDashoffset = len * (1 - f);
+    var f = Math.min(1, Math.max(0, (vh*0.92 - r.top) / (r.height + vh*0.15)));
+    hilo.style.setProperty('--falta', ((1-f)*100).toFixed(1) + '%');
   }
-  window.addEventListener('resize', drawThread);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawThread);
-  window.addEventListener('load', drawThread);
+  function drawThread(){ progress(); }
 
   // ---- utilidades ----
   var toastEl = document.getElementById('toast'), tid;
@@ -414,7 +398,7 @@ footer a{text-decoration:underline;text-decoration-color:var(--borde);text-under
   function closeSheet(el){ el.hidden = true; document.body.style.overflow=''; if (lastFocus) lastFocus.focus(); }
   var qrSheet = document.getElementById('qrSheet'), qrMade = false;
   document.getElementById('qrOpen').addEventListener('click', function(){
-    if (!qrMade && window.QRCode){ new QRCode(document.getElementById('qrBox'), { text: URL_TARJETA, width: 480, height: 480, colorDark:'#0E1A3A', colorLight:'#FFFFFF', correctLevel: QRCode.CorrectLevel.M }); qrMade = true; }
+    if (!qrMade && window.QRCode){ new QRCode(document.getElementById('qrBox'), { text: URL_TARJETA, width: 480, height: 480, colorDark:'#22150E', colorLight:'#FFFFFF', correctLevel: QRCode.CorrectLevel.M }); qrMade = true; }
     openSheet(qrSheet, document.getElementById('qrClose'));
   });
   document.getElementById('qrClose').addEventListener('click', function(){ closeSheet(qrSheet); });
