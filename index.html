@@ -5,240 +5,264 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>mi eelo · Cotizá con nosotras</title>
 <meta name="description" content="mi eelo: tote bags, playeras, kits y regalos hechos por las mujeres de mi eelo en Guatemala. Cotizá por WhatsApp, mirá el catálogo y conocé la historia.">
-<meta property="og:title" content="mi eelo · Hecho en Guatemala">
-<meta property="og:description" content="Textil y manufactura hechos en Guatemala por las mujeres de mi eelo. Cotizá por WhatsApp.">
-<meta property="og:image" content="https://adrian-9856.github.io/landing-majo/assets/portada.jpg">
-<meta name="theme-color" content="#2A5171">
-<meta name="color-scheme" content="light only">
+<meta property="og:title" content="mi eelo · Hecho con ganas en Guatemala">
+<meta property="og:description" content="Tote bags, playeras, kits y regalos para tu marca u organización. Cotizá por WhatsApp.">
+<meta property="og:image" content="https://adrian-9856.github.io/landing-majo/assets/fondo-coleccion.jpg">
+<meta name="theme-color" content="#0E1A3A">
+<meta name="color-scheme" content="dark only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* mi eelo · colores tomados del logo ("mi" azul #2A5171, "eelo" coral #EEA492), regla 60/30/10:
-   60 crema cálido · 30 azul del logo · 10 coral (hilo, nudos, detalles). */
+/* mi eelo · tarjeta para feria. Pensada para celular.
+   Fondo: videos del taller y de la colección, a pantalla completa, todo el tiempo.
+   Colores de la colección (playera Guatemala): cobalto, crema y coral sobre un velo azul noche. */
 :root{
-  --blanco:#FBF7F2; --rosa:#F3EBE4; --arena:#E6D8CC; --azul:#2A5171; --coral:#E9967C;
-  --tinta:#1F3A52; --suave:#5A6A78;
+  --noche:#0E1A3A;          /* velo sobre el video */
+  --cobalto:#2B4DF0;        /* azul de la playera */
+  --crema:#F7EFE3;          /* crema de la playera */
+  --coral:#FF9472;          /* coral del logo, más vivo */
+  --blanco:#FFFFFF;
+  --suave:rgba(255,255,255,.78);
+  --vidrio:rgba(255,255,255,.11);
+  --vidrio2:rgba(255,255,255,.18);
+  --borde:rgba(255,255,255,.20);
   --serif:"Playfair Display", Georgia, serif;
   --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
-  color-scheme:light only;
+  color-scheme:dark only;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--azul);color:var(--tinta);font:400 1rem/1.55 var(--sans)}
+html{-webkit-text-size-adjust:100%;background:var(--noche)}
+body{margin:0;background:var(--noche);color:var(--blanco);font:400 1rem/1.55 var(--sans);-webkit-font-smoothing:antialiased}
 img,video{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
-:focus-visible{outline:2px solid var(--azul);outline-offset:3px;border-radius:8px}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:10px}
 [hidden]{display:none!important}
 
-/* ---------- escenario: video + tarjeta ---------- */
-.stage{min-height:100svh}
-.media{position:relative;height:min(68svh,620px);overflow:hidden;background:var(--azul)}
-.media video,.media .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,40,60,.45) 0%,rgba(20,40,60,0) 28%,rgba(20,40,60,0) 70%,rgba(20,40,60,.35) 100%)}
-.brand{position:absolute;z-index:2;left:20px;right:20px;top:max(18px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;color:#fff}
-.brand .logo img{height:30px;width:auto;filter:drop-shadow(0 1px 6px rgba(0,0,0,.25))}
-.lang{display:flex;gap:2px;padding:3px;border-radius:99px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.lang button{font:500 .75rem/1 var(--mono);letter-spacing:.08em;padding:8px 11px;border-radius:99px;color:#fff;min-width:40px}
-.lang button[aria-pressed="true"]{background:#fff;color:var(--azul)}
-.soundbtn{position:absolute;z-index:2;right:20px;bottom:44px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff}
-.soundbtn svg{width:18px;height:18px}
+/* ---------- fondo de videos (fijo) ---------- */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--noche)}
+.bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.bg video.on{opacity:1}
+.bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(14,26,58,.55) 0%,rgba(14,26,58,.05) 22%,rgba(14,26,58,.10) 45%,rgba(14,26,58,.82) 78%,rgba(14,26,58,.92) 100%);}
+body.scrolled .bg::after{background:rgba(14,26,58,.72)}
 
-/* ---------- tarjeta ---------- */
-.card{position:relative;z-index:3;max-width:520px;margin:-28px auto 0;background:var(--blanco);border-radius:28px 28px 0 0;padding:30px 22px 40px}
-.who{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--arena)}
-.who img{height:40px;width:auto}
-.who .tag{font:500 .64rem/1.45 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--suave);text-align:right}
-h1{font:600 clamp(2.3rem,9.4vw,3rem)/1.02 var(--serif);letter-spacing:-.015em;margin:0;color:var(--azul)}
+/* ---------- barra ---------- */
+.bar{position:fixed;z-index:10;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:max(16px,env(safe-area-inset-top)) 18px 12px;transition:background .3s}
+body.scrolled .bar{background:rgba(14,26,58,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.bar .logo img{height:28px;width:auto;filter:drop-shadow(0 1px 8px rgba(0,0,0,.3))}
+.right{display:flex;align-items:center;gap:8px}
+.lang{display:flex;gap:2px;padding:3px;border-radius:99px;background:var(--vidrio2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--borde)}
+.lang button{font:500 .72rem/1 var(--mono);letter-spacing:.08em;padding:8px 11px;border-radius:99px;min-width:40px}
+.lang button[aria-pressed="true"]{background:var(--crema);color:var(--noche)}
+.pause{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--vidrio2);border:1px solid var(--borde);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.pause svg{width:15px;height:15px}
+
+/* ---------- contenido ---------- */
+main{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:0 18px calc(36px + env(safe-area-inset-bottom))}
+
+/* pantalla 1: el video manda, el texto abajo */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:22px}
+.pill{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font:500 .68rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:8px 12px;border-radius:99px;background:var(--vidrio2);border:1px solid var(--borde);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--coral)}
+h1{font:600 clamp(2.6rem,12vw,3.6rem)/.98 var(--serif);letter-spacing:-.02em;margin:16px 0 0;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.25)}
 h1 em{font-style:italic;font-weight:500;color:var(--coral)}
-.lede{margin:14px 0 0;font-size:1.04rem;color:var(--suave);max-width:40ch}
-.lede em{font:italic 500 1.1em/1 var(--serif);color:var(--coral)}
+.lede{margin:14px 0 0;font-size:1.02rem;color:var(--suave);max-width:36ch}
 
-/* botón principal */
-.wa{display:flex;align-items:center;gap:14px;margin-top:24px;padding:14px 18px 14px 14px;border-radius:20px;background:var(--azul);color:#fff;transition:transform .15s,box-shadow .15s}
-.wa:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(56,85,104,.28)}
-.wa .ic{width:48px;height:48px;border-radius:14px;background:var(--coral);color:var(--azul);display:grid;place-items:center;flex:none}
-.wa .ic svg{width:26px;height:26px}
-.wa b{display:block;font:600 1.08rem/1.2 var(--sans)}
-.wa small{display:block;font:400 .78rem/1.3 var(--mono);opacity:.82;margin-top:3px;letter-spacing:.02em}
-.wa .go{margin-left:auto;width:10px;height:10px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 0 rgba(233,150,124,.7);animation:pulso 2.2s infinite}
-@keyframes pulso{70%{box-shadow:0 0 0 12px rgba(232,151,119,0)}100%{box-shadow:0 0 0 0 rgba(232,151,119,0)}}
+.wa{display:flex;align-items:center;gap:14px;margin-top:22px;padding:12px 16px 12px 12px;border-radius:22px;background:var(--crema);color:var(--noche);box-shadow:0 14px 40px rgba(0,0,0,.35);transition:transform .15s}
+.wa:active{transform:scale(.98)}
+.wa .ic{width:50px;height:50px;border-radius:16px;background:var(--cobalto);color:#fff;display:grid;place-items:center;flex:none}
+.wa .ic svg{width:27px;height:27px}
+.wa b{display:block;font:700 1.08rem/1.2 var(--sans)}
+.wa small{display:block;font:500 .78rem/1.3 var(--mono);color:#3B4766;margin-top:3px}
+.wa .go{margin-left:auto;width:36px;height:36px;border-radius:50%;background:var(--coral);display:grid;place-items:center;flex:none;animation:pulso 2.2s infinite}
+.wa .go svg{width:15px;height:15px;color:var(--noche)}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(255,148,114,.65)}70%{box-shadow:0 0 0 14px rgba(255,148,114,0)}100%{box-shadow:0 0 0 0 rgba(255,148,114,0)}}
 
-/* ---------- el hilo: une cada enlace ---------- */
-.label{font:500 .7rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--azul);margin:38px 0 6px}
-.thread{position:relative;list-style:none;margin:0;padding:0 0 0 34px}
-.thread .line{position:absolute;left:0;top:0;width:24px;height:100%;overflow:visible;pointer-events:none}
+.scroll-hint{align-self:center;margin-top:20px;font:500 .66rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--suave);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-hint i{width:1.5px;height:26px;background:linear-gradient(var(--coral),transparent);animation:baja 1.8s ease-in-out infinite}
+@keyframes baja{0%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(.3);transform-origin:bottom}}
+
+/* secciones */
+.label{font:500 .68rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin:44px 0 14px;display:flex;align-items:center;gap:10px}
+.label::after{content:"";flex:1;height:1px;background:var(--borde)}
+
+/* el hilo que une los enlaces */
+.thread{position:relative;list-style:none;margin:0;padding:0 0 0 26px;display:grid;gap:10px}
+.thread .line{position:absolute;left:0;top:0;width:20px;height:100%;overflow:visible;pointer-events:none}
 .thread .line path{fill:none;stroke:var(--coral);stroke-width:2;stroke-linecap:round}
 .thread li{position:relative}
-.thread li+li{border-top:1px solid var(--arena)}
-.thread .knot{position:absolute;left:-30px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--blanco);border:2px solid var(--coral);transition:background .2s,transform .2s}
-.thread a,.thread button.row{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:16px 2px}
-.thread .t{flex:1;min-width:0}
-.thread .t b{display:block;font:500 1.22rem/1.2 var(--serif);color:var(--azul)}
-.thread .t span{display:block;font-size:.88rem;color:var(--suave);margin-top:3px}
-.thread .arrow{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--arena);display:grid;place-items:center;color:var(--azul);transition:background .2s,color .2s,border-color .2s}
-.thread .arrow svg{width:14px;height:14px}
-.thread li:hover .knot{background:var(--coral);transform:scale(1.15)}
-.thread li:hover .arrow{background:var(--azul);border-color:var(--azul);color:#fff}
+.knot{position:absolute;left:-26px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--noche);border:2px solid var(--coral);transition:background .2s}
+.glass{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:16px;border-radius:20px;background:var(--vidrio);border:1px solid var(--borde);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);transition:background .2s,transform .15s}
+.glass:hover{background:var(--vidrio2)}
+.glass:active{transform:scale(.985)}
+.thread li:hover .knot{background:var(--coral)}
+.glass .ico{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:none;background:var(--c,var(--cobalto));color:#fff}
+.glass .ico svg{width:22px;height:22px}
+.glass .t{flex:1;min-width:0}
+.glass .t b{display:block;font:600 1.2rem/1.2 var(--serif)}
+.glass .t span{display:block;font-size:.86rem;color:var(--suave);margin-top:2px}
+.glass .arrow{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.12)}
+.glass .arrow svg{width:13px;height:13px}
 
-/* video de la historia */
-.story{display:block;position:relative;margin:14px 0 4px;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:var(--azul);width:100%}
+/* tarjeta de video */
+.story{display:block;position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/10;width:100%;border:1px solid var(--borde);background:#000}
 .story img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.story:hover img{transform:scale(1.03)}
-.story::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(28,34,44,.7))}
-.story .play{position:absolute;z-index:1;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center}
-.story .play::after{content:"";margin-left:5px;border-left:18px solid var(--azul);border-top:11px solid transparent;border-bottom:11px solid transparent}
-.story .cap{position:absolute;z-index:1;left:16px;right:16px;bottom:13px;color:#fff;text-align:left}
-.story .cap b{display:block;font:italic 500 1.3rem/1.2 var(--serif)}
-.story .cap span{font:500 .68rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.story:hover img{transform:scale(1.04)}
+.story::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,26,58,0) 35%,rgba(14,26,58,.85))}
+.story .play{position:absolute;z-index:1;right:16px;bottom:16px;width:52px;height:52px;border-radius:50%;background:var(--coral);display:grid;place-items:center}
+.story .play::after{content:"";margin-left:4px;border-left:15px solid var(--noche);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.story .cap{position:absolute;z-index:1;left:16px;right:80px;bottom:14px;text-align:left}
+.story .cap span{font:500 .64rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--coral)}
+.story .cap b{display:block;font:italic 600 1.4rem/1.15 var(--serif);margin-top:5px}
 
-/* ---------- contacto ---------- */
-.contact{margin-top:4px;display:grid;gap:10px}
-.chip{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;background:var(--rosa);min-height:56px}
-.chip .k{font:500 .66rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--azul);display:block;margin-bottom:5px}
-.chip .v{font-weight:500;font-size:clamp(.86rem,3.9vw,1rem);overflow-wrap:anywhere}
-.chip .grow{flex:1;min-width:0}
-.chip .mini{flex:none;font:500 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:9px 12px;border-radius:99px;background:var(--blanco);color:var(--azul)}
-.chip .go2{flex:none;width:34px;height:34px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center}
-.chip .go2 svg{width:16px;height:16px}
-a.chip:hover{background:var(--arena)}
-.chip .mini:hover{background:var(--azul);color:#fff}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.two .chip{flex-direction:column;align-items:flex-start;gap:0;justify-content:center}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
-.ghost{display:flex;align-items:center;justify-content:center;gap:7px;min-height:50px;border-radius:99px;border:1.5px solid var(--azul);color:var(--azul);font-weight:600;font-size:.88rem;padding:0 10px;white-space:nowrap}
-.ghost:hover{background:var(--azul);color:#fff}
-.ghost svg{width:18px;height:18px;flex:none}
+/* contacto */
+.contact{display:grid;gap:10px}
+.contact .glass .k{display:block;font:500 .64rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--suave);margin:0 0 5px}
+.contact .glass .v{display:block;font-weight:600;font-size:clamp(.9rem,4.1vw,1.02rem);overflow-wrap:anywhere;color:#fff;margin:0}
+.contact .glass .arrow{display:none}
+#mailLink .v{white-space:nowrap;font-size:clamp(.84rem,3.9vw,1.02rem)}
+.share{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:12px;min-height:54px;border-radius:99px;border:1.5px solid var(--borde);font-weight:600;font-size:.95rem;background:transparent;transition:background .2s}
+.share:hover{background:var(--vidrio)}
+.share svg{width:18px;height:18px}
 
-footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--arena);font-size:.86rem;color:var(--suave)}
-footer p{margin:0 0 8px}
-footer a{text-decoration:underline;text-decoration-color:var(--arena);text-underline-offset:4px}
-footer a:hover{text-decoration-color:var(--coral)}
-.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;background:var(--tinta);color:#fff;font-size:.9rem;padding:10px 18px;border-radius:99px;transition:.25s;pointer-events:none;z-index:20}
+footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--borde);font-size:.84rem;color:var(--suave)}
+footer p{margin:0 0 14px}
+footer .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+footer img{height:22px;width:auto;opacity:.9}
+footer a{text-decoration:underline;text-decoration-color:var(--borde);text-underline-offset:4px}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;background:var(--crema);color:var(--noche);font-weight:600;font-size:.9rem;padding:10px 18px;border-radius:99px;transition:.25s;pointer-events:none;z-index:40}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
-/* ---------- hojas: QR y video ---------- */
-.sheet{position:fixed;inset:0;z-index:30;background:rgba(28,34,44,.72);display:grid;place-items:center;padding:16px}
-.sheet .box{background:var(--blanco);border-radius:24px;padding:24px;width:min(360px,100%);text-align:center}
+/* hojas: QR y video */
+.sheet{position:fixed;inset:0;z-index:30;background:rgba(8,14,32,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px}
+.sheet .box{background:var(--crema);color:var(--noche);border-radius:26px;padding:24px;width:min(360px,100%);text-align:center}
 .sheet .box h2{font:600 1.5rem/1.2 var(--serif);margin:0 0 4px}
-.sheet .box p{margin:0 0 16px;color:var(--suave);font-size:.92rem}
-#qrBox{width:240px;max-width:100%;margin:0 auto 18px;aspect-ratio:1}
+.sheet .box p{margin:0 0 16px;color:#4A5470;font-size:.92rem}
+#qrBox{width:230px;max-width:100%;margin:0 auto 18px;aspect-ratio:1;padding:10px;background:#fff;border-radius:16px}
 #qrBox img,#qrBox canvas{width:100%!important;height:auto!important}
+.sheet .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sheet .btns button{min-height:48px;border-radius:99px;font-weight:600;border:1.5px solid var(--noche)}
+.sheet .btns button:first-child{background:var(--noche);color:var(--crema)}
 .sheet .yt{width:min(960px,100%);aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden}
 .sheet .yt iframe{width:100%;height:100%;border:0}
-.close{position:absolute;top:max(14px,env(safe-area-inset-top));right:14px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.95);color:var(--tinta);display:grid;place-items:center;font-size:1.4rem;line-height:1}
+.close{position:absolute;top:max(14px,env(safe-area-inset-top));right:14px;width:44px;height:44px;border-radius:50%;background:var(--crema);color:var(--noche);display:grid;place-items:center;font-size:1.5rem;line-height:1}
 
-/* ---------- escritorio: video fijo a la izquierda, tarjeta a la derecha ---------- */
-@media (min-width:960px){
-  .stage{display:grid;grid-template-columns:minmax(0,1fr) 560px}
-  .media{position:sticky;top:0;height:100vh}
-  .soundbtn{bottom:28px;right:28px}
-  .brand{left:32px;right:32px;top:28px}
-  .brand .lang{position:fixed;top:28px;right:28px;background:rgba(42,81,113,.10)}
-  .brand .lang button{color:var(--azul)}
-  .brand .lang button[aria-pressed="true"]{background:var(--azul);color:#fff}
-  .card{margin:0;max-width:none;border-radius:0;padding:56px 48px 48px;box-shadow:none;min-height:100vh}
+/* escritorio: la columna a la izquierda, el video respira a la derecha */
+@media (min-width:900px){
+  main{margin-left:clamp(32px,8vw,120px);max-width:480px}
+  .bar{padding:24px clamp(32px,8vw,120px)}
+  .bg::after{background:linear-gradient(90deg,rgba(14,26,58,.9) 0%,rgba(14,26,58,.6) 40%,rgba(14,26,58,.05) 75%)}
+  body.scrolled .bg::after{background:linear-gradient(90deg,rgba(14,26,58,.92) 0%,rgba(14,26,58,.7) 45%,rgba(14,26,58,.2) 80%)}
+  .hero{justify-content:center;padding-top:90px}
 }
 @media (prefers-reduced-motion:reduce){
-  .wa .go{animation:none}
-  *{transition:none!important}
+  .wa .go,.scroll-hint i{animation:none}
+  .bg video{transition:none}
 }
 </style>
 </head>
 <body>
 
-<div class="stage">
-  <div class="media">
-    <img class="poster" src="assets/portada.jpg" alt="" aria-hidden="true">
-    <video id="hero" muted loop playsinline preload="metadata" poster="assets/portada.jpg" aria-hidden="true"></video>
-    <div class="brand">
-      <a class="logo" href="https://mi-eelo.com" target="_blank" rel="noopener"><img src="assets/logo-blanco.png" alt="mi eelo" width="92" height="30"></a>
-      <div class="lang" role="group" aria-label="Idioma / Language">
-        <button type="button" data-lang="es" aria-pressed="true">ES</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-    </div>
-    <button class="soundbtn" id="pauseBtn" type="button" aria-label="Pausar video">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
-    </button>
-  </div>
+<div class="bg" aria-hidden="true">
+  <video id="v0" muted playsinline preload="auto" poster="assets/fondo-coleccion.jpg"></video>
+  <video id="v1" muted playsinline preload="none"></video>
+</div>
 
-  <main class="card">
-    <div class="who">
-      <img src="assets/logo.png" alt="mi eelo" width="123" height="40">
-      <div class="tag" data-t="tag">Hecho en Guatemala<br>Empresa social de Creamos</div>
+<header class="bar">
+  <a class="logo" href="https://mi-eelo.com" target="_blank" rel="noopener"><img src="assets/logo-blanco.png" alt="mi eelo" width="86" height="28"></a>
+  <div class="right">
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
-    <h1 data-t="h1">Hecho con <em>ganas</em> en Guatemala.</h1>
-    <p class="lede" data-t="lede">¿Te gustó lo que viste en la feria? También lo hacemos para tu marca, empresa u organización: tote bags, playeras, kits y regalos cosidos por las mujeres de mi eelo. Contanos tu idea y te cotizamos.</p>
+    <button class="pause" id="pauseBtn" type="button" aria-label="Pausar video"></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="pill"><i></i><span data-t="pill">Hecho en Guatemala</span></span>
+    <h1 data-t="h1">Hecho con <em>ganas</em>, pensado para vos.</h1>
+    <p class="lede" data-t="lede">¿Te gustó lo que viste en la feria? Lo hacemos también para tu marca, empresa u organización: tote bags, playeras, kits y regalos cosidos por las mujeres de mi eelo.</p>
 
     <a class="wa" id="waMain" href="https://wa.me/50237649769" target="_blank" rel="noopener">
       <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span>
-      <span><b data-t="waB">Cotizá por WhatsApp</b><small data-t="waS">+502 3764 9769</small></span>
-      <i class="go" aria-hidden="true"></i>
+      <span><b data-t="waB">Cotizá por WhatsApp</b><small>+502 3764 9769</small></span>
+      <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
     </a>
+    <span class="scroll-hint" aria-hidden="true"><span data-t="mas">Más de mi eelo</span><i></i></span>
+  </section>
 
-    <p class="label" data-t="lblExplora">Seguí el hilo</p>
-    <ul class="thread" id="thread">
-      <svg class="line" aria-hidden="true"><path id="threadPath"/></svg>
-      <li><i class="knot"></i>
-        <a href="https://mieelocatalogo.framer.media" target="_blank" rel="noopener">
-          <span class="t"><b data-t="l1b">Catálogo</b><span data-t="l1s">Productos, técnicas y opciones para tu pedido.</span></span>
-          <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
-        </a></li>
-      <li><i class="knot"></i>
-        <a href="https://drive.google.com/drive/folders/1REhvEI1XFFGKA_JyIdqHwPjpnciBd9QA" target="_blank" rel="noopener">
-          <span class="t"><b data-t="l2b">Pedidos que ya hicimos</b><span data-t="l2s">Fotos de trabajos reales para organizaciones y marcas.</span></span>
-          <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
-        </a></li>
-      <li><i class="knot"></i>
-        <a href="https://mi-eelo.com" target="_blank" rel="noopener">
-          <span class="t"><b data-t="l3b">Tienda en línea</b><span data-t="l3s">mi-eelo.com · piezas listas para llevar.</span></span>
-          <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
-        </a></li>
-      <li><i class="knot"></i>
-        <button class="story" type="button" id="storyBtn" aria-label="Ver el video de la historia de mi eelo">
-          <img src="https://i.ytimg.com/vi/IV4xWXgbkfU/hqdefault.jpg" alt="" loading="lazy">
-          <i class="play" aria-hidden="true"></i>
-          <span class="cap"><span data-t="l4k">Video · 2 min</span><b data-t="l4b">La historia de mi eelo</b></span>
-        </button></li>
-      <li><i class="knot"></i>
-        <a href="https://www.instagram.com/mi.eelo" target="_blank" rel="noopener">
-          <span class="t"><b>@mi.eelo</b><span data-t="l5s">El día a día del taller, en Instagram.</span></span>
-          <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
-        </a></li>
-    </ul>
+  <p class="label" data-t="lblExplora">Seguí el hilo</p>
+  <ul class="thread" id="thread">
+    <svg class="line" aria-hidden="true"><path id="threadPath"/></svg>
+    <li><i class="knot"></i>
+      <a class="glass" href="https://mieelocatalogo.framer.media" target="_blank" rel="noopener">
+        <span class="ico" style="--c:var(--cobalto)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5Z"/><path d="M13 4h5.5c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5H13Z"/></svg></span>
+        <span class="t"><b data-t="l1b">Catálogo</b><span data-t="l1s">Productos y técnicas para tu pedido</span></span>
+        <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+      </a></li>
+    <li><i class="knot"></i>
+      <a class="glass" href="https://drive.google.com/drive/folders/1REhvEI1XFFGKA_JyIdqHwPjpnciBd9QA" target="_blank" rel="noopener">
+        <span class="ico" style="--c:var(--coral);color:var(--noche)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-8 8"/></svg></span>
+        <span class="t"><b data-t="l2b">Pedidos que ya hicimos</b><span data-t="l2s">Fotos de trabajos reales</span></span>
+        <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+      </a></li>
+    <li><i class="knot"></i>
+      <a class="glass" href="https://mi-eelo.com" target="_blank" rel="noopener">
+        <span class="ico" style="--c:var(--crema);color:var(--noche)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8Z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg></span>
+        <span class="t"><b data-t="l3b">Tienda en línea</b><span data-t="l3s">mi-eelo.com</span></span>
+        <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+      </a></li>
+    <li><i class="knot"></i>
+      <button class="story" type="button" id="storyBtn" aria-label="Video: la historia de mi eelo">
+        <img src="https://i.ytimg.com/vi/IV4xWXgbkfU/hqdefault.jpg" alt="" loading="lazy">
+        <span class="cap"><span data-t="l4k">Video</span><b data-t="l4b">La historia de mi eelo</b></span>
+        <i class="play" aria-hidden="true"></i>
+      </button></li>
+    <li><i class="knot"></i>
+      <a class="glass" href="https://www.instagram.com/mi.eelo" target="_blank" rel="noopener">
+        <span class="ico" style="--c:linear-gradient(135deg,#FF9472,#E2457A 55%,#7B4DF0)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></span>
+        <span class="t"><b>@mi.eelo</b><span data-t="l5s">El taller en Instagram</span></span>
+        <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+      </a></li>
+  </ul>
 
-    <p class="label" data-t="lblContacto">Escribinos</p>
-    <div class="contact">
-      <a class="chip" id="waPhone" href="https://wa.me/50237649769" target="_blank" rel="noopener"><span class="go2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span><span class="grow"><span class="k" data-t="kVentas">WhatsApp de ventas</span><span class="v">+502 3764 9769</span></span></a>
-      <a class="chip" id="mailLink" href="mailto:majo@creamosguatemala.org"><span class="go2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="grow"><span class="k" data-t="kMail">Correo</span><span class="v">majo@creamosguatemala.org</span></span></a>
-    </div>
-    <div class="actions">
-      <button class="ghost" type="button" id="saveContact">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 20c0-3.3 3.1-6 7-6M18 14v6M15 17h6"/></svg>
-        <span data-t="guardar">Guardar contacto</span></button>
-      <button class="ghost" type="button" id="qrOpen">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 14v.01M17 21h4v-4M14 18v3"/></svg>
-        <span data-t="compartir">Compartir</span></button>
-    </div>
+  <p class="label" data-t="lblContacto">Escribinos</p>
+  <div class="contact">
+    <a class="glass" id="waPhone" href="https://wa.me/50237649769" target="_blank" rel="noopener">
+      <span class="ico" style="--c:var(--cobalto)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span>
+      <span class="t"><span class="k" data-t="kVentas">WhatsApp de ventas</span><span class="v">+502 3764 9769</span></span>
+      <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+    </a>
+    <a class="glass" id="mailLink" href="mailto:majo@creamosguatemala.org">
+      <span class="ico" style="--c:var(--coral);color:var(--noche)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+      <span class="t"><span class="k" data-t="kMail">Correo</span><span class="v">majo@creamosguatemala.org</span></span>
+      <span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+    </a>
+  </div>
+  <button class="share" type="button" id="qrOpen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 14v.01M17 21h4v-4M14 18v3"/></svg>
+    <span data-t="compartir">Compartí esta página</span></button>
 
-    <footer>
-      <p data-t="foot1">mi eelo es la empresa social de Creamos Guatemala. Cada pedido son horas de trabajo pagado para las mujeres del taller, y las ganancias vuelven a los programas de Creamos.</p>
-      <p><a href="https://creamosguatemala.org" target="_blank" rel="noopener">creamosguatemala.org</a></p>
-    </footer>
-  </main>
-</div>
+  <footer>
+    <p data-t="foot1">mi eelo es la empresa social de Creamos Guatemala. Cada pedido son horas de trabajo pagado para las mujeres del taller, y las ganancias vuelven a los programas de Creamos.</p>
+    <div class="row"><img src="assets/logo-blanco.png" alt="mi eelo" width="68" height="22"><a href="https://creamosguatemala.org" target="_blank" rel="noopener">creamosguatemala.org</a></div>
+  </footer>
+</main>
 
 <div class="sheet" id="qrSheet" hidden role="dialog" aria-modal="true" aria-labelledby="qrTitle">
   <div class="box">
-    <h2 id="qrTitle" data-t="qrT">Compartí esta tarjeta</h2>
+    <h2 id="qrTitle" data-t="qrT">Compartí mi eelo</h2>
     <p data-t="qrP">Escaneá con la cámara del teléfono.</p>
     <div id="qrBox"></div>
-    <div class="actions" style="margin-top:0">
-      <button class="ghost" type="button" id="qrShare" data-t="qrShare">Enviar enlace</button>
-      <button class="ghost" type="button" id="qrClose" data-t="cerrar">Cerrar</button>
+    <div class="btns">
+      <button type="button" id="qrShare" data-t="qrShare">Enviar enlace</button>
+      <button type="button" id="qrClose" data-t="cerrar">Cerrar</button>
     </div>
   </div>
 </div>
@@ -256,54 +280,51 @@ footer a:hover{text-decoration-color:var(--coral)}
   var URL_TARJETA = 'https://adrian-9856.github.io/landing-majo/';
   var T = {
     es:{
-      tag:'Hecho en Guatemala<br>Empresa social de Creamos',
-      h1:'Hecho con <em>ganas</em> en Guatemala.',
-      lede:'¿Te gustó lo que viste en la feria? También lo hacemos para tu marca, empresa u organización: tote bags, playeras, kits y regalos cosidos por las mujeres de mi eelo. Contanos tu idea y te cotizamos.',
-      waB:'Cotizá por WhatsApp', waS:'+502 3764 9769',
+      pill:'Hecho en Guatemala',
+      h1:'Hecho con <em>ganas</em>, pensado para vos.',
+      lede:'¿Te gustó lo que viste en la feria? Lo hacemos también para tu marca, empresa u organización: tote bags, playeras, kits y regalos cosidos por las mujeres de mi eelo.',
+      waB:'Cotizá por WhatsApp', mas:'Más de mi eelo',
       waMsg:'¡Hola mi eelo! Los conocí en la feria y me gustaría cotizar un pedido.',
       mailSub:'Cotización mi eelo', mailBody:'¡Hola mi eelo!\n\nLos conocí en la feria y me gustaría cotizar un pedido.\n\nProducto:\nCantidad aproximada:\nFecha en que lo necesito:\nMi nombre y organización:\n',
       lblExplora:'Seguí el hilo',
-      l1b:'Catálogo', l1s:'Productos, técnicas y opciones para tu pedido.',
-      l2b:'Pedidos que ya hicimos', l2s:'Fotos de trabajos reales para organizaciones y marcas.',
-      l3b:'Tienda en línea', l3s:'mi-eelo.com · piezas listas para llevar.',
+      l1b:'Catálogo', l1s:'Productos y técnicas para tu pedido',
+      l2b:'Pedidos que ya hicimos', l2s:'Fotos de trabajos reales',
+      l3b:'Tienda en línea', l3s:'mi-eelo.com',
       l4k:'Video', l4b:'La historia de mi eelo',
-      l5s:'El día a día del taller, en Instagram.',
-      lblContacto:'Escribinos', kMail:'Correo', copiar:'Copiar', kVentas:'WhatsApp de ventas',
-      guardar:'Guardar contacto', compartir:'Compartir',
+      l5s:'El taller en Instagram',
+      lblContacto:'Escribinos', kMail:'Correo', kVentas:'WhatsApp de ventas',
+      compartir:'Compartí esta página',
       foot1:'mi eelo es la empresa social de Creamos Guatemala. Cada pedido son horas de trabajo pagado para las mujeres del taller, y las ganancias vuelven a los programas de Creamos.',
       qrT:'Compartí mi eelo', qrP:'Escaneá con la cámara del teléfono.', qrShare:'Enviar enlace', cerrar:'Cerrar',
-      copiado:'Correo copiado', enlace:'Enlace copiado', pausar:'Pausar video', reproducir:'Reproducir video',
-      vcRol:'Ventas', vcNota:'mi eelo, empresa social de Creamos Guatemala. Tote bags, playeras, kits y regalos. Ventas por WhatsApp: +502 3764 9769',
+      enlace:'Enlace copiado', pausar:'Pausar video', reproducir:'Reproducir video',
       title:'mi eelo · Cotizá con nosotras'
     },
     en:{
-      tag:'Made in Guatemala<br>A Creamos social enterprise',
-      h1:'Made with <em>ganas</em> in Guatemala.',
-      lede:'Liked what you saw at the fair? We make it for your brand, company or organization too: tote bags, tees, kits and gifts sewn by the women of mi eelo. Tell us your idea and we’ll send you a quote.',
-      waB:'Get a quote on WhatsApp', waS:'+502 3764 9769',
+      pill:'Made in Guatemala',
+      h1:'Made with <em>ganas</em>, made for you.',
+      lede:'Liked what you saw at the fair? We make it for your brand, company or organization too: tote bags, tees, kits and gifts sewn by the women of mi eelo.',
+      waB:'Get a quote on WhatsApp', mas:'More mi eelo',
       waMsg:'Hi mi eelo! We met at the fair and I’d love a quote for an order.',
       mailSub:'mi eelo quote request', mailBody:'Hi mi eelo!\n\nWe met at the fair and I’d love a quote for an order.\n\nProduct:\nApproximate quantity:\nDate needed:\nMy name and organization:\n',
       lblExplora:'Follow the thread',
-      l1b:'Catalog', l1s:'Products, techniques and options for your order.',
-      l2b:'Orders we’ve made', l2s:'Real work for organizations and brands.',
-      l3b:'Online shop', l3s:'mi-eelo.com · pieces ready to take home.',
+      l1b:'Catalog', l1s:'Products and techniques for your order',
+      l2b:'Orders we’ve made', l2s:'Photos of real work',
+      l3b:'Online shop', l3s:'mi-eelo.com',
       l4k:'Video', l4b:'The story of mi eelo',
-      l5s:'Life in the workshop, on Instagram.',
-      lblContacto:'Get in touch', kMail:'Email', copiar:'Copy', kVentas:'Sales on WhatsApp',
-      guardar:'Save contact', compartir:'Share',
+      l5s:'The workshop on Instagram',
+      lblContacto:'Get in touch', kMail:'Email', kVentas:'Sales on WhatsApp',
+      compartir:'Share this page',
       foot1:'mi eelo is the social enterprise of Creamos Guatemala. Every order means paid working hours for the women in the workshop, and profits go back into Creamos’ programs.',
       qrT:'Share mi eelo', qrP:'Scan it with your phone camera.', qrShare:'Send link', cerrar:'Close',
-      copiado:'Email copied', enlace:'Link copied', pausar:'Pause video', reproducir:'Play video',
-      vcRol:'Sales', vcNota:'mi eelo, the social enterprise of Creamos Guatemala. Tote bags, tees, kits and gifts. Sales on WhatsApp: +502 3764 9769',
+      enlace:'Link copied', pausar:'Pause video', reproducir:'Play video',
       title:'mi eelo · Get a quote'
     }
   };
-  var lang = 'es';
   function store(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } }
   var q = (location.search.match(/[?&]lang=(es|en)/)||[])[1];
-  lang = q || store('lang') || ((navigator.language||'es').toLowerCase().indexOf('es')===0 ? 'es' : 'en');
-
+  var lang = q || store('lang') || ((navigator.language||'es').toLowerCase().indexOf('es')===0 ? 'es' : 'en');
   function t(k){ return T[lang][k]; }
+
   function apply(){
     document.documentElement.lang = lang;
     document.title = t('title');
@@ -312,54 +333,69 @@ footer a:hover{text-decoration-color:var(--coral)}
     var wa = 'https://wa.me/50237649769?text=' + encodeURIComponent(t('waMsg'));
     document.getElementById('waMain').href = wa; document.getElementById('waPhone').href = wa;
     document.getElementById('mailLink').href = 'mailto:majo@creamosguatemala.org?subject=' + encodeURIComponent(t('mailSub')) + '&body=' + encodeURIComponent(t('mailBody'));
-    setPauseLabel();
-    requestAnimationFrame(drawThread);
+    setPause(); requestAnimationFrame(drawThread);
   }
   document.querySelectorAll('.lang button').forEach(function(b){
     b.addEventListener('click', function(){ lang = b.dataset.lang; store('lang', lang); apply(); });
   });
 
-  // ---- video de portada: chico en teléfono, grande en escritorio ----
-  var v = document.getElementById('hero'), pauseBtn = document.getElementById('pauseBtn');
+  // ---- fondo: los videos se turnan con un fundido ----
+  var big = window.innerWidth >= 900;
+  var CLIPS = big
+    ? ['assets/portada-1280.mp4','assets/fondo-coleccion.mp4']
+    : ['assets/fondo-coleccion.mp4','assets/portada-720.mp4'];
+  var vids = [document.getElementById('v0'), document.getElementById('v1')];
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  v.src = (window.innerWidth >= 960 ? 'assets/portada-1280.mp4' : 'assets/portada-720.mp4');
-  function setPauseLabel(){
-    var paused = v.paused;
+  var cur = 0, paused = reduce;
+  vids[0].src = CLIPS[0]; vids[1].src = CLIPS[1]; vids[1].preload = 'auto';
+  vids[0].classList.add('on');
+  function playV(v){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+  if (!paused) playV(vids[0]);
+  vids.forEach(function(v, i){
+    v.addEventListener('ended', function(){
+      if (i !== cur) return;
+      var nxt = vids[1-cur];
+      nxt.currentTime = 0; if (!paused) playV(nxt);
+      nxt.classList.add('on'); v.classList.remove('on'); cur = 1-cur;
+    });
+  });
+  var pauseBtn = document.getElementById('pauseBtn');
+  function setPause(){
     pauseBtn.setAttribute('aria-label', paused ? t('reproducir') : t('pausar'));
     pauseBtn.innerHTML = paused
       ? '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'
       : '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
   }
-  if (!reduce){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
-  v.addEventListener('play', setPauseLabel); v.addEventListener('pause', setPauseLabel);
-  pauseBtn.addEventListener('click', function(){ v.paused ? v.play() : v.pause(); });
+  pauseBtn.addEventListener('click', function(){ paused = !paused; paused ? vids[cur].pause() : playV(vids[cur]); setPause(); });
 
-  // ---- el hilo: una curva suave que pasa por cada nudo ----
+  // ---- al bajar, el velo se oscurece para leer mejor ----
+  function onScroll(){ document.body.classList.toggle('scrolled', window.scrollY > window.innerHeight*0.45); progress(); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // ---- el hilo: curva suave por cada nudo, se dibuja al bajar ----
   var list = document.getElementById('thread'), path = document.getElementById('threadPath');
   function drawThread(){
     var knots = list.querySelectorAll('.knot'), base = list.getBoundingClientRect();
     if (!knots.length) return;
     var pts = [].map.call(knots, function(k){ var r = k.getBoundingClientRect(); return [r.left - base.left + r.width/2, r.top - base.top + r.height/2]; });
-    var d = 'M' + pts[0][0] + ' ' + (pts[0][1] - 26), sway = 7;
+    var d = 'M' + pts[0][0] + ' ' + (pts[0][1] - 40), sw = 8;
     pts.forEach(function(p, i){
-      var prev = i ? pts[i-1] : [p[0], p[1]-26], mid = (prev[1] + p[1]) / 2, s = (i % 2 ? sway : -sway);
+      var prev = i ? pts[i-1] : [p[0], p[1]-40], mid = (prev[1] + p[1]) / 2, s = (i % 2 ? sw : -sw);
       d += ' C' + (prev[0] + s) + ' ' + mid + ' ' + (p[0] - s) + ' ' + mid + ' ' + p[0] + ' ' + p[1];
     });
-    var last = pts[pts.length-1];
-    d += ' C' + (last[0]+sway) + ' ' + (last[1]+20) + ' ' + (last[0]-4) + ' ' + (last[1]+30) + ' ' + (last[0]+6) + ' ' + (last[1]+42);
+    var l = pts[pts.length-1];
+    d += ' C' + (l[0]+sw) + ' ' + (l[1]+20) + ' ' + (l[0]-4) + ' ' + (l[1]+30) + ' ' + (l[0]+5) + ' ' + (l[1]+44);
     path.setAttribute('d', d);
-    var len = path.getTotalLength();
-    path.style.strokeDasharray = len; path.dataset.len = len;
+    var len = path.getTotalLength(); path.style.strokeDasharray = len; path.dataset.len = len;
     progress();
   }
   function progress(){
     var len = +path.dataset.len || 0; if (!len) return;
     if (reduce){ path.style.strokeDashoffset = 0; return; }
     var r = list.getBoundingClientRect(), vh = window.innerHeight;
-    var f = Math.min(1, Math.max(0, (vh*0.92 - r.top) / (r.height + vh*0.25)));
+    var f = Math.min(1, Math.max(0, (vh*0.9 - r.top) / (r.height + vh*0.2)));
     path.style.strokeDashoffset = len * (1 - f);
   }
-  window.addEventListener('scroll', progress, {passive:true});
   window.addEventListener('resize', drawThread);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawThread);
   window.addEventListener('load', drawThread);
@@ -372,24 +408,13 @@ footer a:hover{text-decoration-color:var(--coral)}
     try{ navigator.clipboard.writeText(text).then(function(){ toast(ok); }, fb); }catch(e){ fb(); }
   }
 
-  // ---- guardar contacto (vCard) ----
-  document.getElementById('saveContact').addEventListener('click', function(){
-    var vc = ['BEGIN:VCARD','VERSION:3.0','N:;mi eelo;;;','FN:mi eelo','ORG:mi eelo · Creamos Guatemala',
-      'TITLE:' + t('vcRol'),'EMAIL;TYPE=WORK:majo@creamosguatemala.org',
-      'TEL;TYPE=WORK:+50237649769',
-      'URL:https://mi-eelo.com','URL:' + URL_TARJETA,'NOTE:' + t('vcNota'),'END:VCARD'].join('\r\n');
-    var blob = new Blob([vc], {type:'text/vcard'}), a = document.createElement('a');
-    a.href = URL.createObjectURL(blob); a.download = 'mi-eelo.vcf';
-    document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1000);
-  });
-
-  // ---- hojas (QR y video) ----
+  // ---- hojas: QR y video ----
   var lastFocus = null;
-  function openSheet(el, focusEl){ lastFocus = document.activeElement; el.hidden = false; document.body.style.overflow='hidden'; focusEl.focus(); }
+  function openSheet(el, f){ lastFocus = document.activeElement; el.hidden = false; document.body.style.overflow='hidden'; f.focus(); }
   function closeSheet(el){ el.hidden = true; document.body.style.overflow=''; if (lastFocus) lastFocus.focus(); }
   var qrSheet = document.getElementById('qrSheet'), qrMade = false;
   document.getElementById('qrOpen').addEventListener('click', function(){
-    if (!qrMade && window.QRCode){ new QRCode(document.getElementById('qrBox'), { text: URL_TARJETA, width: 480, height: 480, colorDark:'#2A5171', colorLight:'#FFFFFF', correctLevel: QRCode.CorrectLevel.M }); qrMade = true; }
+    if (!qrMade && window.QRCode){ new QRCode(document.getElementById('qrBox'), { text: URL_TARJETA, width: 480, height: 480, colorDark:'#0E1A3A', colorLight:'#FFFFFF', correctLevel: QRCode.CorrectLevel.M }); qrMade = true; }
     openSheet(qrSheet, document.getElementById('qrClose'));
   });
   document.getElementById('qrClose').addEventListener('click', function(){ closeSheet(qrSheet); });
@@ -401,15 +426,15 @@ footer a:hover{text-decoration-color:var(--coral)}
   var ytSheet = document.getElementById('ytSheet'), ytBox = document.getElementById('ytBox');
   document.getElementById('storyBtn').addEventListener('click', function(){
     ytBox.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/IV4xWXgbkfU?autoplay=1&rel=0&hl=' + lang + '" title="mi eelo" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
-    if (!v.paused) v.pause();
+    vids[cur].pause();
     openSheet(ytSheet, document.getElementById('ytClose'));
   });
-  function closeYt(){ ytBox.innerHTML = ''; closeSheet(ytSheet); }
+  function closeYt(){ ytBox.innerHTML = ''; closeSheet(ytSheet); if (!paused) playV(vids[cur]); }
   document.getElementById('ytClose').addEventListener('click', closeYt);
   [qrSheet, ytSheet].forEach(function(s){ s.addEventListener('click', function(e){ if (e.target === s) (s===ytSheet ? closeYt() : closeSheet(s)); }); });
   document.addEventListener('keydown', function(e){ if (e.key !== 'Escape') return; if (!ytSheet.hidden) closeYt(); else if (!qrSheet.hidden) closeSheet(qrSheet); });
 
-  apply();
+  apply(); onScroll();
 })();
 </script>
 </body>
