@@ -8,17 +8,17 @@
 <meta property="og:title" content="mi eelo · Hecho en Guatemala">
 <meta property="og:description" content="Textil y manufactura hechos en Guatemala por las mujeres de mi eelo. Cotizá por WhatsApp.">
 <meta property="og:image" content="https://adrian-9856.github.io/landing-majo/assets/portada.jpg">
-<meta name="theme-color" content="#385568">
+<meta name="theme-color" content="#2A5171">
 <meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* mi eelo · colores del brand book, regla 60/30/10:
-   fondo blanco + #E7DCDA · soporte #385568 y #D8C8BE · giro #E89777 (solo hilo, puntos, detalles). */
+/* mi eelo · colores tomados del logo ("mi" azul #2A5171, "eelo" coral #EEA492), regla 60/30/10:
+   60 crema cálido · 30 azul del logo · 10 coral (hilo, nudos, detalles). */
 :root{
-  --blanco:#FFFFFF; --rosa:#E7DCDA; --arena:#D8C8BE; --azul:#385568; --coral:#E89777;
-  --tinta:#2A2420; --suave:#5E5A57;
+  --blanco:#FBF7F2; --rosa:#F3EBE4; --arena:#E6D8CC; --azul:#2A5171; --coral:#E9967C;
+  --tinta:#1F3A52; --suave:#5A6A78;
   --serif:"Playfair Display", Georgia, serif;
   --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
@@ -26,7 +26,7 @@
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--rosa);color:var(--tinta);font:400 1rem/1.55 var(--sans)}
+body{margin:0;background:var(--azul);color:var(--tinta);font:400 1rem/1.55 var(--sans)}
 img,video{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
@@ -37,37 +37,33 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .stage{min-height:100svh}
 .media{position:relative;height:min(68svh,620px);overflow:hidden;background:var(--azul)}
 .media video,.media .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,34,44,.38) 0%,rgba(28,34,44,0) 30%,rgba(28,34,44,0) 55%,rgba(28,34,44,.55) 100%)}
+.media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,40,60,.45) 0%,rgba(20,40,60,0) 28%,rgba(20,40,60,0) 70%,rgba(20,40,60,.35) 100%)}
 .brand{position:absolute;z-index:2;left:20px;right:20px;top:max(18px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;color:#fff}
-.brand .logo{display:flex;align-items:center;gap:10px;font:500 1.15rem/1 var(--serif);letter-spacing:.01em}
-.sol{animation:aparece 1.2s ease both}
-@keyframes aparece{from{opacity:0;transform:translateY(6px)}}
-.brand .sol{width:44px;height:auto;color:#fff;stroke-width:7}
+.brand .logo img{height:30px;width:auto;filter:drop-shadow(0 1px 6px rgba(0,0,0,.25))}
 .lang{display:flex;gap:2px;padding:3px;border-radius:99px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .lang button{font:500 .75rem/1 var(--mono);letter-spacing:.08em;padding:8px 11px;border-radius:99px;color:#fff;min-width:40px}
 .lang button[aria-pressed="true"]{background:#fff;color:var(--azul)}
-.soundbtn{position:absolute;z-index:2;right:20px;bottom:86px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff}
+.soundbtn{position:absolute;z-index:2;right:20px;bottom:44px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff}
 .soundbtn svg{width:18px;height:18px}
 
 /* ---------- tarjeta ---------- */
-.card{position:relative;z-index:3;max-width:520px;margin:-72px auto 0;background:var(--blanco);border-radius:28px 28px 0 0;padding:0 22px 40px;box-shadow:0 -12px 40px rgba(42,36,32,.10)}
-.who{display:flex;align-items:flex-end;gap:16px;transform:translateY(-36px);margin-bottom:-22px}
-.badge{width:96px;height:96px;border-radius:50%;border:4px solid var(--blanco);background:var(--rosa);display:grid;place-items:center;flex:none}
-.badge .sol{width:62px;height:auto;color:var(--azul);margin-top:8px;stroke-width:6}
-
-.who .tag{font:500 .7rem/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--azul);padding-bottom:10px}
-h1{font:600 clamp(2.3rem,9vw,2.9rem)/1.02 var(--serif);letter-spacing:-.015em;margin:0;color:var(--tinta)}
+.card{position:relative;z-index:3;max-width:520px;margin:-28px auto 0;background:var(--blanco);border-radius:28px 28px 0 0;padding:30px 22px 40px}
+.who{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--arena)}
+.who img{height:40px;width:auto}
+.who .tag{font:500 .64rem/1.45 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--suave);text-align:right}
+h1{font:600 clamp(2.3rem,9.4vw,3rem)/1.02 var(--serif);letter-spacing:-.015em;margin:0;color:var(--azul)}
+h1 em{font-style:italic;font-weight:500;color:var(--coral)}
 .lede{margin:14px 0 0;font-size:1.04rem;color:var(--suave);max-width:40ch}
 .lede em{font:italic 500 1.1em/1 var(--serif);color:var(--coral)}
 
 /* botón principal */
 .wa{display:flex;align-items:center;gap:14px;margin-top:24px;padding:14px 18px 14px 14px;border-radius:20px;background:var(--azul);color:#fff;transition:transform .15s,box-shadow .15s}
 .wa:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(56,85,104,.28)}
-.wa .ic{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.12);display:grid;place-items:center;flex:none}
+.wa .ic{width:48px;height:48px;border-radius:14px;background:var(--coral);color:var(--azul);display:grid;place-items:center;flex:none}
 .wa .ic svg{width:26px;height:26px}
 .wa b{display:block;font:600 1.08rem/1.2 var(--sans)}
 .wa small{display:block;font:400 .78rem/1.3 var(--mono);opacity:.82;margin-top:3px;letter-spacing:.02em}
-.wa .go{margin-left:auto;width:10px;height:10px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 0 rgba(232,151,119,.7);animation:pulso 2.2s infinite}
+.wa .go{margin-left:auto;width:10px;height:10px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 0 rgba(233,150,124,.7);animation:pulso 2.2s infinite}
 @keyframes pulso{70%{box-shadow:0 0 0 12px rgba(232,151,119,0)}100%{box-shadow:0 0 0 0 rgba(232,151,119,0)}}
 
 /* ---------- el hilo: une cada enlace ---------- */
@@ -76,11 +72,11 @@ h1{font:600 clamp(2.3rem,9vw,2.9rem)/1.02 var(--serif);letter-spacing:-.015em;ma
 .thread .line{position:absolute;left:0;top:0;width:24px;height:100%;overflow:visible;pointer-events:none}
 .thread .line path{fill:none;stroke:var(--coral);stroke-width:2;stroke-linecap:round}
 .thread li{position:relative}
-.thread li+li{border-top:1px solid var(--rosa)}
+.thread li+li{border-top:1px solid var(--arena)}
 .thread .knot{position:absolute;left:-30px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--blanco);border:2px solid var(--coral);transition:background .2s,transform .2s}
 .thread a,.thread button.row{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:16px 2px}
 .thread .t{flex:1;min-width:0}
-.thread .t b{display:block;font:500 1.22rem/1.2 var(--serif);color:var(--tinta)}
+.thread .t b{display:block;font:500 1.22rem/1.2 var(--serif);color:var(--azul)}
 .thread .t span{display:block;font-size:.88rem;color:var(--suave);margin-top:3px}
 .thread .arrow{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--arena);display:grid;place-items:center;color:var(--azul);transition:background .2s,color .2s,border-color .2s}
 .thread .arrow svg{width:14px;height:14px}
@@ -105,6 +101,9 @@ h1{font:600 clamp(2.3rem,9vw,2.9rem)/1.02 var(--serif);letter-spacing:-.015em;ma
 .chip .v{font-weight:500;font-size:clamp(.86rem,3.9vw,1rem);overflow-wrap:anywhere}
 .chip .grow{flex:1;min-width:0}
 .chip .mini{flex:none;font:500 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:9px 12px;border-radius:99px;background:var(--blanco);color:var(--azul)}
+.chip .go2{flex:none;width:34px;height:34px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center}
+.chip .go2 svg{width:16px;height:16px}
+a.chip:hover{background:var(--arena)}
 .chip .mini:hover{background:var(--azul);color:#fff}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .two .chip{flex-direction:column;align-items:flex-start;gap:0;justify-content:center}
@@ -113,7 +112,7 @@ h1{font:600 clamp(2.3rem,9vw,2.9rem)/1.02 var(--serif);letter-spacing:-.015em;ma
 .ghost:hover{background:var(--azul);color:#fff}
 .ghost svg{width:18px;height:18px;flex:none}
 
-footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--rosa);font-size:.86rem;color:var(--suave)}
+footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--arena);font-size:.86rem;color:var(--suave)}
 footer p{margin:0 0 8px}
 footer a{text-decoration:underline;text-decoration-color:var(--arena);text-underline-offset:4px}
 footer a:hover{text-decoration-color:var(--coral)}
@@ -137,12 +136,10 @@ footer a:hover{text-decoration-color:var(--coral)}
   .media{position:sticky;top:0;height:100vh}
   .soundbtn{bottom:28px;right:28px}
   .brand{left:32px;right:32px;top:28px}
-  .brand .lang{position:fixed;top:28px;right:28px;background:rgba(56,85,104,.14)}
+  .brand .lang{position:fixed;top:28px;right:28px;background:rgba(42,81,113,.10)}
   .brand .lang button{color:var(--azul)}
   .brand .lang button[aria-pressed="true"]{background:var(--azul);color:#fff}
   .card{margin:0;max-width:none;border-radius:0;padding:56px 48px 48px;box-shadow:none;min-height:100vh}
-  .who{transform:none;margin-bottom:20px}
-  .badge{border:0}
 }
 @media (prefers-reduced-motion:reduce){
   .wa .go{animation:none}
@@ -157,7 +154,7 @@ footer a:hover{text-decoration-color:var(--coral)}
     <img class="poster" src="assets/portada.jpg" alt="" aria-hidden="true">
     <video id="hero" muted loop playsinline preload="metadata" poster="assets/portada.jpg" aria-hidden="true"></video>
     <div class="brand">
-      <a class="logo" href="https://mi-eelo.com" target="_blank" rel="noopener" aria-label="mi eelo"><svg class="sol" viewBox="0 0 400 285" fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path pathLength="1" d="M23,281 L31,274 L38,267 L45,260 L52,253 L59,246 L66,239 L73,232 L81,225 L87,217 L95,211 L101,203 L109,197 L116,190 L123,183 L131,176 L139,170 L146,163 L153,156 L161,149 L167,142 L175,135 L181,128 L188,120 L195,113 L201,105 L208,98 L215,91 L222,83 L229,76 L236,69 L243,62 L250,55 L257,48 L264,41 L271,34 L278,26 L284,20"/><path pathLength="1" d="M18,272 L24,264 L31,257 L38,250 L45,243 L52,236 L59,229 L66,222 L74,215 L81,208 L89,202 L96,195 L103,188 L111,182 L118,175 L125,168 L132,160 L139,153 L146,146 L152,138 L159,131 L166,124 L173,116 L180,109 L187,102 L194,95 L201,88 L208,81 L216,74 L223,67 L230,60 L237,53 L243,45 L250,38 L256,30 L263,23 L269,15"/><path pathLength="1" d="M14,258 L21,250 L28,243 L35,236 L42,229 L49,222 L56,215 L63,208 L71,201 L78,194 L85,187 L93,181 L100,174 L107,167 L115,160 L122,153 L129,146 L135,138 L142,131 L149,124 L156,117 L163,109 L170,102 L177,95 L184,88 L191,81 L198,74 L205,67 L213,60 L219,53 L226,45 L233,38 L239,30 L246,23 L252,16 L258,9"/><path pathLength="1" d="M39,280 L46,274 L53,267 L60,260 L67,253 L74,246 L81,239 L88,232 L96,225 L103,218 L110,211 L118,204 L125,198 L132,191 L140,185 L148,178 L155,171 L163,165 L170,158 L177,151 L184,144 L191,136 L197,128 L203,120 L210,113 L216,105 L223,98 L230,91 L237,83 L244,76 L251,69 L258,62 L265,55 L272,48 L279,41 L286,34 L292,29 L297,24"/><path pathLength="1" d="M10,243 L18,236 L25,229 L32,222 L39,215 L46,208 L53,200 L60,193 L67,186 L75,180 L82,173 L90,167 L97,160 L104,153 L112,146 L119,139 L126,132 L132,124 L139,117 L146,110 L153,103 L160,95 L166,88 L173,80 L180,73 L187,66 L194,59 L201,52 L208,45 L216,38 L223,31 L230,24 L237,17 L242,12 L247,6"/><path pathLength="1" d="M6,230 L13,223 L20,216 L28,210 L35,203 L42,196 L49,189 L56,182 L64,175 L71,168 L79,162 L86,156 L94,149 L101,142 L109,135 L116,128 L123,121 L129,113 L136,106 L143,99 L149,91 L156,83 L163,76 L169,68 L176,61 L183,54 L190,47 L197,40 L204,33 L212,26 L219,19 L226,12 L231,7 L235,2"/><path pathLength="1" d="M4,215 L12,208 L19,201 L26,194 L33,187 L40,180 L47,173 L54,166 L62,159 L69,152 L77,146 L85,140 L92,133 L99,126 L106,119 L113,112 L120,104 L127,97 L134,90 L140,82 L147,75 L154,67 L161,60 L168,53 L175,46 L182,39 L189,32 L196,25 L204,18 L211,11 L216,6 L220,2"/><path pathLength="1" d="M66,273 L73,266 L80,259 L87,252 L94,245 L101,238 L108,231 L116,224 L123,217 L130,210 L137,203 L145,197 L152,190 L160,184 L168,177 L175,170 L182,163 L189,156 L196,149 L202,141 L209,134 L216,126 L223,119 L229,111 L236,104 L242,96 L249,89 L256,82 L264,75 L271,68 L278,61 L285,54 L292,47 L299,40 L306,33"/><path pathLength="1" d="M3,202 L11,195 L18,188 L24,180 L31,173 L38,166 L45,159 L52,152 L60,145 L68,139 L75,132 L82,126 L90,119 L97,112 L104,104 L111,97 L117,89 L124,82 L131,75 L137,67 L144,60 L151,53 L159,46 L166,39 L173,32 L180,25 L187,18 L194,11 L199,6 L204,2"/><path pathLength="1" d="M4,186 L11,178 L18,171 L24,163 L31,156 L38,149 L45,142 L52,135 L60,128 L68,122 L76,116 L83,109 L90,102 L97,95 L104,88 L111,80 L118,73 L124,65 L131,58 L137,50 L144,43 L151,36 L159,29 L166,22 L174,16 L182,10 L188,6 L192,2"/><path pathLength="1" d="M88,268 L95,261 L102,254 L109,247 L116,240 L123,233 L130,226 L137,219 L145,212 L153,206 L161,200 L169,194 L176,187 L183,180 L190,173 L197,165 L204,158 L211,151 L218,144 L224,136 L231,129 L238,121 L244,113 L251,106 L258,99 L265,91 L272,84 L279,78 L286,71 L294,64 L301,57 L308,50 L312,44 L317,40"/><path pathLength="1" d="M5,170 L12,162 L19,155 L26,148 L33,141 L40,134 L47,127 L55,120 L63,114 L70,108 L78,101 L85,94 L92,87 L99,80 L106,72 L112,64 L119,57 L125,49 L131,41 L138,34 L145,27 L153,20 L161,14 L168,8 L175,2"/><path pathLength="1" d="M111,264 L119,258 L126,251 L133,244 L141,238 L148,231 L156,225 L163,218 L171,211 L178,204 L185,197 L192,190 L198,182 L205,175 L212,168 L219,160 L226,153 L233,146 L240,139 L247,132 L254,125 L261,118 L268,111 L276,104 L283,97 L290,90 L296,82 L303,75 L310,67 L316,59 L321,54 L326,48"/><path pathLength="1" d="M9,150 L16,143 L23,136 L30,129 L37,122 L44,115 L51,108 L58,101 L66,94 L74,88 L81,81 L88,74 L95,67 L102,60 L108,52 L115,44 L121,36 L128,29 L136,23 L143,16 L150,10 L156,4"/><path pathLength="1" d="M139,260 L146,253 L153,246 L160,238 L166,231 L173,224 L180,217 L187,210 L194,202 L201,195 L208,188 L215,181 L222,174 L230,167 L237,161 L245,154 L253,148 L260,141 L267,134 L274,127 L281,120 L288,112 L295,105 L302,98 L309,91 L316,84 L323,77 L330,69 L335,64 L339,60"/><path pathLength="1" d="M19,126 L26,118 L32,110 L39,103 L46,96 L53,89 L61,83 L69,76 L76,69 L84,63 L91,56 L98,48 L104,41 L110,33 L117,26 L124,19 L131,13"/><path pathLength="1" d="M160,258 L167,251 L174,244 L181,237 L188,230 L194,222 L201,215 L208,208 L215,200 L222,193 L229,186 L236,179 L244,173 L251,166 L259,159 L266,152 L274,146 L281,139 L288,132 L296,126 L303,119 L310,112 L318,105 L325,98 L332,91 L339,84 L344,78 L348,73"/><path pathLength="1" d="M179,257 L186,250 L192,242 L199,235 L206,228 L213,221 L220,214 L227,207 L235,200 L243,194 L251,188 L258,181 L266,175 L273,168 L280,161 L287,154 L294,146 L301,139 L308,132 L315,125 L322,118 L329,110 L336,103 L343,96 L350,89 L357,83"/><path pathLength="1" d="M31,96 L39,90 L46,83 L54,77 L61,70 L68,63 L75,56 L82,49 L89,41 L96,34 L103,27"/><path pathLength="1" d="M197,256 L204,249 L210,242 L217,234 L224,227 L232,220 L239,214 L247,207 L255,201 L262,194 L269,187 L276,180 L284,174 L291,167 L298,160 L305,152 L312,145 L319,138 L326,131 L333,124 L340,117 L348,110 L355,103 L360,98 L366,93"/><path pathLength="1" d="M213,256 L220,249 L227,242 L234,235 L241,228 L249,222 L256,215 L264,208 L272,202 L279,195 L286,188 L294,182 L301,175 L308,168 L315,161 L322,154 L330,147 L337,140 L344,133 L351,126 L358,119 L365,112 L370,106 L374,102"/><path pathLength="1" d="M230,257 L237,250 L244,243 L251,236 L258,229 L266,223 L274,217 L281,210 L289,203 L296,196 L303,189 L310,182 L317,175 L324,168 L331,160 L338,153 L345,146 L352,139 L359,132 L366,125 L371,120 L376,116"/><path pathLength="1" d="M45,70 L52,63 L59,56 L66,49 L74,43"/><path pathLength="1" d="M248,258 L255,251 L262,244 L268,236 L275,229 L282,222 L289,215 L297,208 L304,201 L312,195 L319,188 L326,181 L334,174 L341,167 L348,160 L355,153 L362,146 L369,139 L376,132 L382,125"/><path pathLength="1" d="M264,259 L271,252 L277,244 L284,237 L292,231 L299,224 L306,217 L314,210 L321,203 L329,197 L336,190 L343,183 L350,176 L357,169 L364,162 L371,155 L378,147 L383,142 L387,138"/><path pathLength="1" d="M278,261 L285,254 L292,247 L299,240 L306,233 L314,227 L322,220 L329,214 L337,207 L344,200 L351,193 L358,186 L365,179 L372,171 L379,164 L384,159 L390,154"/><path pathLength="1" d="M290,263 L297,256 L304,249 L312,243 L320,236 L327,230 L335,223 L342,217 L349,209 L357,203 L364,196 L371,189 L378,182 L385,175 L390,170 L395,166"/><path pathLength="1" d="M306,266 L313,259 L321,253 L328,246 L336,240 L343,233 L350,226 L358,219 L365,212 L372,205 L379,197 L386,191 L391,186 L396,181"/><path pathLength="1" d="M320,268 L328,262 L335,255 L343,249 L351,243 L358,236 L364,228 L371,221 L378,213 L385,206 L392,200 L398,194"/><path pathLength="1" d="M335,272 L343,266 L350,259 L357,252 L364,245 L371,238 L378,231 L385,223 L390,218 L395,212"/><path pathLength="1" d="M348,275 L355,268 L362,261 L369,254 L376,247 L383,240 L389,233 L395,226"/><path pathLength="1" d="M360,278 L367,271 L374,264 L381,257 L386,252 L391,247"/><path pathLength="1" d="M372,282 L376,276 L381,271"/></svg><span>mi eelo</span></a>
+      <a class="logo" href="https://mi-eelo.com" target="_blank" rel="noopener"><img src="assets/logo-blanco.png" alt="mi eelo" width="92" height="30"></a>
       <div class="lang" role="group" aria-label="Idioma / Language">
         <button type="button" data-lang="es" aria-pressed="true">ES</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -170,11 +167,11 @@ footer a:hover{text-decoration-color:var(--coral)}
 
   <main class="card">
     <div class="who">
-      <span class="badge"><svg class="sol big" viewBox="0 0 400 285" fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path pathLength="1" d="M23,281 L31,274 L38,267 L45,260 L52,253 L59,246 L66,239 L73,232 L81,225 L87,217 L95,211 L101,203 L109,197 L116,190 L123,183 L131,176 L139,170 L146,163 L153,156 L161,149 L167,142 L175,135 L181,128 L188,120 L195,113 L201,105 L208,98 L215,91 L222,83 L229,76 L236,69 L243,62 L250,55 L257,48 L264,41 L271,34 L278,26 L284,20"/><path pathLength="1" d="M18,272 L24,264 L31,257 L38,250 L45,243 L52,236 L59,229 L66,222 L74,215 L81,208 L89,202 L96,195 L103,188 L111,182 L118,175 L125,168 L132,160 L139,153 L146,146 L152,138 L159,131 L166,124 L173,116 L180,109 L187,102 L194,95 L201,88 L208,81 L216,74 L223,67 L230,60 L237,53 L243,45 L250,38 L256,30 L263,23 L269,15"/><path pathLength="1" d="M14,258 L21,250 L28,243 L35,236 L42,229 L49,222 L56,215 L63,208 L71,201 L78,194 L85,187 L93,181 L100,174 L107,167 L115,160 L122,153 L129,146 L135,138 L142,131 L149,124 L156,117 L163,109 L170,102 L177,95 L184,88 L191,81 L198,74 L205,67 L213,60 L219,53 L226,45 L233,38 L239,30 L246,23 L252,16 L258,9"/><path pathLength="1" d="M39,280 L46,274 L53,267 L60,260 L67,253 L74,246 L81,239 L88,232 L96,225 L103,218 L110,211 L118,204 L125,198 L132,191 L140,185 L148,178 L155,171 L163,165 L170,158 L177,151 L184,144 L191,136 L197,128 L203,120 L210,113 L216,105 L223,98 L230,91 L237,83 L244,76 L251,69 L258,62 L265,55 L272,48 L279,41 L286,34 L292,29 L297,24"/><path pathLength="1" d="M10,243 L18,236 L25,229 L32,222 L39,215 L46,208 L53,200 L60,193 L67,186 L75,180 L82,173 L90,167 L97,160 L104,153 L112,146 L119,139 L126,132 L132,124 L139,117 L146,110 L153,103 L160,95 L166,88 L173,80 L180,73 L187,66 L194,59 L201,52 L208,45 L216,38 L223,31 L230,24 L237,17 L242,12 L247,6"/><path pathLength="1" d="M6,230 L13,223 L20,216 L28,210 L35,203 L42,196 L49,189 L56,182 L64,175 L71,168 L79,162 L86,156 L94,149 L101,142 L109,135 L116,128 L123,121 L129,113 L136,106 L143,99 L149,91 L156,83 L163,76 L169,68 L176,61 L183,54 L190,47 L197,40 L204,33 L212,26 L219,19 L226,12 L231,7 L235,2"/><path pathLength="1" d="M4,215 L12,208 L19,201 L26,194 L33,187 L40,180 L47,173 L54,166 L62,159 L69,152 L77,146 L85,140 L92,133 L99,126 L106,119 L113,112 L120,104 L127,97 L134,90 L140,82 L147,75 L154,67 L161,60 L168,53 L175,46 L182,39 L189,32 L196,25 L204,18 L211,11 L216,6 L220,2"/><path pathLength="1" d="M66,273 L73,266 L80,259 L87,252 L94,245 L101,238 L108,231 L116,224 L123,217 L130,210 L137,203 L145,197 L152,190 L160,184 L168,177 L175,170 L182,163 L189,156 L196,149 L202,141 L209,134 L216,126 L223,119 L229,111 L236,104 L242,96 L249,89 L256,82 L264,75 L271,68 L278,61 L285,54 L292,47 L299,40 L306,33"/><path pathLength="1" d="M3,202 L11,195 L18,188 L24,180 L31,173 L38,166 L45,159 L52,152 L60,145 L68,139 L75,132 L82,126 L90,119 L97,112 L104,104 L111,97 L117,89 L124,82 L131,75 L137,67 L144,60 L151,53 L159,46 L166,39 L173,32 L180,25 L187,18 L194,11 L199,6 L204,2"/><path pathLength="1" d="M4,186 L11,178 L18,171 L24,163 L31,156 L38,149 L45,142 L52,135 L60,128 L68,122 L76,116 L83,109 L90,102 L97,95 L104,88 L111,80 L118,73 L124,65 L131,58 L137,50 L144,43 L151,36 L159,29 L166,22 L174,16 L182,10 L188,6 L192,2"/><path pathLength="1" d="M88,268 L95,261 L102,254 L109,247 L116,240 L123,233 L130,226 L137,219 L145,212 L153,206 L161,200 L169,194 L176,187 L183,180 L190,173 L197,165 L204,158 L211,151 L218,144 L224,136 L231,129 L238,121 L244,113 L251,106 L258,99 L265,91 L272,84 L279,78 L286,71 L294,64 L301,57 L308,50 L312,44 L317,40"/><path pathLength="1" d="M5,170 L12,162 L19,155 L26,148 L33,141 L40,134 L47,127 L55,120 L63,114 L70,108 L78,101 L85,94 L92,87 L99,80 L106,72 L112,64 L119,57 L125,49 L131,41 L138,34 L145,27 L153,20 L161,14 L168,8 L175,2"/><path pathLength="1" d="M111,264 L119,258 L126,251 L133,244 L141,238 L148,231 L156,225 L163,218 L171,211 L178,204 L185,197 L192,190 L198,182 L205,175 L212,168 L219,160 L226,153 L233,146 L240,139 L247,132 L254,125 L261,118 L268,111 L276,104 L283,97 L290,90 L296,82 L303,75 L310,67 L316,59 L321,54 L326,48"/><path pathLength="1" d="M9,150 L16,143 L23,136 L30,129 L37,122 L44,115 L51,108 L58,101 L66,94 L74,88 L81,81 L88,74 L95,67 L102,60 L108,52 L115,44 L121,36 L128,29 L136,23 L143,16 L150,10 L156,4"/><path pathLength="1" d="M139,260 L146,253 L153,246 L160,238 L166,231 L173,224 L180,217 L187,210 L194,202 L201,195 L208,188 L215,181 L222,174 L230,167 L237,161 L245,154 L253,148 L260,141 L267,134 L274,127 L281,120 L288,112 L295,105 L302,98 L309,91 L316,84 L323,77 L330,69 L335,64 L339,60"/><path pathLength="1" d="M19,126 L26,118 L32,110 L39,103 L46,96 L53,89 L61,83 L69,76 L76,69 L84,63 L91,56 L98,48 L104,41 L110,33 L117,26 L124,19 L131,13"/><path pathLength="1" d="M160,258 L167,251 L174,244 L181,237 L188,230 L194,222 L201,215 L208,208 L215,200 L222,193 L229,186 L236,179 L244,173 L251,166 L259,159 L266,152 L274,146 L281,139 L288,132 L296,126 L303,119 L310,112 L318,105 L325,98 L332,91 L339,84 L344,78 L348,73"/><path pathLength="1" d="M179,257 L186,250 L192,242 L199,235 L206,228 L213,221 L220,214 L227,207 L235,200 L243,194 L251,188 L258,181 L266,175 L273,168 L280,161 L287,154 L294,146 L301,139 L308,132 L315,125 L322,118 L329,110 L336,103 L343,96 L350,89 L357,83"/><path pathLength="1" d="M31,96 L39,90 L46,83 L54,77 L61,70 L68,63 L75,56 L82,49 L89,41 L96,34 L103,27"/><path pathLength="1" d="M197,256 L204,249 L210,242 L217,234 L224,227 L232,220 L239,214 L247,207 L255,201 L262,194 L269,187 L276,180 L284,174 L291,167 L298,160 L305,152 L312,145 L319,138 L326,131 L333,124 L340,117 L348,110 L355,103 L360,98 L366,93"/><path pathLength="1" d="M213,256 L220,249 L227,242 L234,235 L241,228 L249,222 L256,215 L264,208 L272,202 L279,195 L286,188 L294,182 L301,175 L308,168 L315,161 L322,154 L330,147 L337,140 L344,133 L351,126 L358,119 L365,112 L370,106 L374,102"/><path pathLength="1" d="M230,257 L237,250 L244,243 L251,236 L258,229 L266,223 L274,217 L281,210 L289,203 L296,196 L303,189 L310,182 L317,175 L324,168 L331,160 L338,153 L345,146 L352,139 L359,132 L366,125 L371,120 L376,116"/><path pathLength="1" d="M45,70 L52,63 L59,56 L66,49 L74,43"/><path pathLength="1" d="M248,258 L255,251 L262,244 L268,236 L275,229 L282,222 L289,215 L297,208 L304,201 L312,195 L319,188 L326,181 L334,174 L341,167 L348,160 L355,153 L362,146 L369,139 L376,132 L382,125"/><path pathLength="1" d="M264,259 L271,252 L277,244 L284,237 L292,231 L299,224 L306,217 L314,210 L321,203 L329,197 L336,190 L343,183 L350,176 L357,169 L364,162 L371,155 L378,147 L383,142 L387,138"/><path pathLength="1" d="M278,261 L285,254 L292,247 L299,240 L306,233 L314,227 L322,220 L329,214 L337,207 L344,200 L351,193 L358,186 L365,179 L372,171 L379,164 L384,159 L390,154"/><path pathLength="1" d="M290,263 L297,256 L304,249 L312,243 L320,236 L327,230 L335,223 L342,217 L349,209 L357,203 L364,196 L371,189 L378,182 L385,175 L390,170 L395,166"/><path pathLength="1" d="M306,266 L313,259 L321,253 L328,246 L336,240 L343,233 L350,226 L358,219 L365,212 L372,205 L379,197 L386,191 L391,186 L396,181"/><path pathLength="1" d="M320,268 L328,262 L335,255 L343,249 L351,243 L358,236 L364,228 L371,221 L378,213 L385,206 L392,200 L398,194"/><path pathLength="1" d="M335,272 L343,266 L350,259 L357,252 L364,245 L371,238 L378,231 L385,223 L390,218 L395,212"/><path pathLength="1" d="M348,275 L355,268 L362,261 L369,254 L376,247 L383,240 L389,233 L395,226"/><path pathLength="1" d="M360,278 L367,271 L374,264 L381,257 L386,252 L391,247"/><path pathLength="1" d="M372,282 L376,276 L381,271"/></svg></span>
+      <img src="assets/logo.png" alt="mi eelo" width="123" height="40">
       <div class="tag" data-t="tag">Hecho en Guatemala<br>Empresa social de Creamos</div>
     </div>
-    <h1 data-t="h1">Qué bueno que nos encontraste.</h1>
-    <p class="lede" data-t="lede">Somos mi eelo. Tote bags, playeras, kits y regalos para tu marca u organización, hechos con <em>ganas</em> por las mujeres de mi eelo. Contanos qué tenés en mente y lo cotizamos.</p>
+    <h1 data-t="h1">Hecho con <em>ganas</em> en Guatemala.</h1>
+    <p class="lede" data-t="lede">¿Te gustó lo que viste en la feria? También lo hacemos para tu marca, empresa u organización: tote bags, playeras, kits y regalos cosidos por las mujeres de mi eelo. Contanos tu idea y te cotizamos.</p>
 
     <a class="wa" id="waMain" href="https://wa.me/50237649769" target="_blank" rel="noopener">
       <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span>
@@ -215,11 +212,8 @@ footer a:hover{text-decoration-color:var(--coral)}
 
     <p class="label" data-t="lblContacto">Escribinos</p>
     <div class="contact">
-      <div class="chip">
-        <span class="grow"><span class="k" data-t="kMail">Correo</span><a class="v" id="mail" href="mailto:majo@creamosguatemala.org">majo@creamosguatemala.org</a></span>
-        <button class="mini" type="button" id="copyMail" data-t="copiar">Copiar</button>
-      </div>
-      <a class="chip" href="tel:+50237649769"><span class="grow"><span class="k" data-t="kVentas">Ventas · llamadas y WhatsApp</span><span class="v">+502 3764 9769</span></span></a>
+      <a class="chip" id="waPhone" href="https://wa.me/50237649769" target="_blank" rel="noopener"><span class="go2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span><span class="grow"><span class="k" data-t="kVentas">WhatsApp de ventas</span><span class="v">+502 3764 9769</span></span></a>
+      <a class="chip" id="mailLink" href="mailto:majo@creamosguatemala.org"><span class="go2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="grow"><span class="k" data-t="kMail">Correo</span><span class="v">majo@creamosguatemala.org</span></span></a>
     </div>
     <div class="actions">
       <button class="ghost" type="button" id="saveContact">
@@ -263,17 +257,18 @@ footer a:hover{text-decoration-color:var(--coral)}
   var T = {
     es:{
       tag:'Hecho en Guatemala<br>Empresa social de Creamos',
-      h1:'Qué bueno que nos encontraste.',
-      lede:'Somos mi eelo. Tote bags, playeras, kits y regalos para tu marca u organización, hechos con <em>ganas</em> por las mujeres de mi eelo. Contanos qué tenés en mente y lo cotizamos.',
+      h1:'Hecho con <em>ganas</em> en Guatemala.',
+      lede:'¿Te gustó lo que viste en la feria? También lo hacemos para tu marca, empresa u organización: tote bags, playeras, kits y regalos cosidos por las mujeres de mi eelo. Contanos tu idea y te cotizamos.',
       waB:'Cotizá por WhatsApp', waS:'+502 3764 9769',
       waMsg:'¡Hola mi eelo! Los conocí en la feria y me gustaría cotizar un pedido.',
+      mailSub:'Cotización mi eelo', mailBody:'¡Hola mi eelo!\n\nLos conocí en la feria y me gustaría cotizar un pedido.\n\nProducto:\nCantidad aproximada:\nFecha en que lo necesito:\nMi nombre y organización:\n',
       lblExplora:'Seguí el hilo',
       l1b:'Catálogo', l1s:'Productos, técnicas y opciones para tu pedido.',
       l2b:'Pedidos que ya hicimos', l2s:'Fotos de trabajos reales para organizaciones y marcas.',
       l3b:'Tienda en línea', l3s:'mi-eelo.com · piezas listas para llevar.',
       l4k:'Video', l4b:'La historia de mi eelo',
       l5s:'El día a día del taller, en Instagram.',
-      lblContacto:'Escribinos', kMail:'Correo', copiar:'Copiar', kVentas:'Ventas · llamadas y WhatsApp',
+      lblContacto:'Escribinos', kMail:'Correo', copiar:'Copiar', kVentas:'WhatsApp de ventas',
       guardar:'Guardar contacto', compartir:'Compartir',
       foot1:'mi eelo es la empresa social de Creamos Guatemala. Cada pedido son horas de trabajo pagado para las mujeres del taller, y las ganancias vuelven a los programas de Creamos.',
       qrT:'Compartí mi eelo', qrP:'Escaneá con la cámara del teléfono.', qrShare:'Enviar enlace', cerrar:'Cerrar',
@@ -283,17 +278,18 @@ footer a:hover{text-decoration-color:var(--coral)}
     },
     en:{
       tag:'Made in Guatemala<br>A Creamos social enterprise',
-      h1:'So glad you found us.',
-      lede:'We’re mi eelo. Tote bags, tees, kits and gifts for your brand or organization, made with <em>ganas</em> by the women of mi eelo. Tell us what you have in mind and we’ll send you a quote.',
+      h1:'Made with <em>ganas</em> in Guatemala.',
+      lede:'Liked what you saw at the fair? We make it for your brand, company or organization too: tote bags, tees, kits and gifts sewn by the women of mi eelo. Tell us your idea and we’ll send you a quote.',
       waB:'Get a quote on WhatsApp', waS:'+502 3764 9769',
       waMsg:'Hi mi eelo! We met at the fair and I’d love a quote for an order.',
+      mailSub:'mi eelo quote request', mailBody:'Hi mi eelo!\n\nWe met at the fair and I’d love a quote for an order.\n\nProduct:\nApproximate quantity:\nDate needed:\nMy name and organization:\n',
       lblExplora:'Follow the thread',
       l1b:'Catalog', l1s:'Products, techniques and options for your order.',
       l2b:'Orders we’ve made', l2s:'Real work for organizations and brands.',
       l3b:'Online shop', l3s:'mi-eelo.com · pieces ready to take home.',
       l4k:'Video', l4b:'The story of mi eelo',
       l5s:'Life in the workshop, on Instagram.',
-      lblContacto:'Get in touch', kMail:'Email', copiar:'Copy', kVentas:'Sales · calls & WhatsApp',
+      lblContacto:'Get in touch', kMail:'Email', copiar:'Copy', kVentas:'Sales on WhatsApp',
       guardar:'Save contact', compartir:'Share',
       foot1:'mi eelo is the social enterprise of Creamos Guatemala. Every order means paid working hours for the women in the workshop, and profits go back into Creamos’ programs.',
       qrT:'Share mi eelo', qrP:'Scan it with your phone camera.', qrShare:'Send link', cerrar:'Close',
@@ -313,7 +309,9 @@ footer a:hover{text-decoration-color:var(--coral)}
     document.title = t('title');
     document.querySelectorAll('[data-t]').forEach(function(el){ var v = T[lang][el.getAttribute('data-t')]; if (v!=null) el.innerHTML = v; });
     document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.lang===lang ? 'true':'false'); });
-    document.getElementById('waMain').href = 'https://wa.me/50237649769?text=' + encodeURIComponent(t('waMsg'));
+    var wa = 'https://wa.me/50237649769?text=' + encodeURIComponent(t('waMsg'));
+    document.getElementById('waMain').href = wa; document.getElementById('waPhone').href = wa;
+    document.getElementById('mailLink').href = 'mailto:majo@creamosguatemala.org?subject=' + encodeURIComponent(t('mailSub')) + '&body=' + encodeURIComponent(t('mailBody'));
     setPauseLabel();
     requestAnimationFrame(drawThread);
   }
@@ -373,7 +371,6 @@ footer a:hover{text-decoration-color:var(--coral)}
     function fb(){ var ta = document.createElement('textarea'); ta.value = text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); toast(ok); }catch(e){} ta.remove(); }
     try{ navigator.clipboard.writeText(text).then(function(){ toast(ok); }, fb); }catch(e){ fb(); }
   }
-  document.getElementById('copyMail').addEventListener('click', function(){ copy('majo@creamosguatemala.org', t('copiado')); });
 
   // ---- guardar contacto (vCard) ----
   document.getElementById('saveContact').addEventListener('click', function(){
@@ -392,7 +389,7 @@ footer a:hover{text-decoration-color:var(--coral)}
   function closeSheet(el){ el.hidden = true; document.body.style.overflow=''; if (lastFocus) lastFocus.focus(); }
   var qrSheet = document.getElementById('qrSheet'), qrMade = false;
   document.getElementById('qrOpen').addEventListener('click', function(){
-    if (!qrMade && window.QRCode){ new QRCode(document.getElementById('qrBox'), { text: URL_TARJETA, width: 480, height: 480, colorDark:'#385568', colorLight:'#FFFFFF', correctLevel: QRCode.CorrectLevel.M }); qrMade = true; }
+    if (!qrMade && window.QRCode){ new QRCode(document.getElementById('qrBox'), { text: URL_TARJETA, width: 480, height: 480, colorDark:'#2A5171', colorLight:'#FFFFFF', correctLevel: QRCode.CorrectLevel.M }); qrMade = true; }
     openSheet(qrSheet, document.getElementById('qrClose'));
   });
   document.getElementById('qrClose').addEventListener('click', function(){ closeSheet(qrSheet); });
